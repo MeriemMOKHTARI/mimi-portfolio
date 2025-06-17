@@ -12,32 +12,32 @@ const Skills = () => {
     {
       title: "Frontend Development",
       skills: ["React", "Vue.js", "TypeScript", "Tailwind CSS", "Next.js"],
-      color: "from-purple-400 to-purple-600"
+      color: "from-pink-400 to-pink-600"
     },
     {
       title: "Backend Development",
       skills: ["Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL"],
-      color: "from-pink-400 to-pink-600"
+      color: "from-rose-400 to-rose-600"
     },
     {
       title: "Mobile Development",
       skills: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
-      color: "from-purple-500 to-pink-500"
+      color: "from-pink-500 to-rose-500"
     },
     {
       title: "Cybersecurity",
       skills: ["Penetration Testing", "Network Security", "OWASP", "Cryptography"],
-      color: "from-pink-500 to-purple-500"
+      color: "from-rose-500 to-pink-500"
     },
     {
       title: "AI & Machine Learning",
       skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP", "Data Science"],
-      color: "from-purple-600 to-pink-400"
+      color: "from-pink-600 to-rose-400"
     },
     {
       title: "Tools & Technologies",
       skills: ["Git", "Docker", "AWS", "Linux", "CI/CD"],
-      color: "from-pink-600 to-purple-400"
+      color: "from-rose-600 to-pink-400"
     }
   ];
 
@@ -52,9 +52,9 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            My <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Skills</span>
+            My <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Skills</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -64,7 +64,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-purple-500/20 hover:border-purple-400/50 transition-all duration-300 group"
+              className="p-6 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300 group"
               whileHover={{ scale: 1.02, y: -5 }}
             >
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>

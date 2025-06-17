@@ -19,9 +19,9 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Me</span>
+            About <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -53,25 +53,25 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl backdrop-blur-sm border border-purple-500/20">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-full blur-xl"></div>
+            <div className="relative p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl backdrop-blur-sm border border-pink-500/20">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-pink-600/30 to-rose-600/30 rounded-full blur-xl"></div>
               <div className="relative space-y-4">
                 <h3 className="text-2xl font-bold text-white mb-4">Quick Facts</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                     <span className="text-gray-300">🎓 Computer Systems Student</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-rose-400 rounded-full"></div>
                     <span className="text-gray-300">💻 Full-Stack Developer</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                     <span className="text-gray-300">🛡️ Security Focused</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-rose-400 rounded-full"></div>
                     <span className="text-gray-300">🤖 AI Enthusiast</span>
                   </div>
                 </div>

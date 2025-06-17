@@ -19,13 +19,13 @@ const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 z-0">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/20 to-pink-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-pink-900/20 to-blue-900/30" />
       
       {/* Animated Particles */}
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-20"
+          className="absolute rounded-full bg-gradient-to-r from-pink-400 to-rose-400 opacity-20"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
@@ -48,7 +48,7 @@ const AnimatedBackground = () => {
 
       {/* Floating Geometric Shapes */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 border border-purple-400/30 rounded-lg"
+        className="absolute top-20 left-10 w-32 h-32 border border-pink-400/30 rounded-lg"
         animate={{
           rotate: [0, 360],
           scale: [1, 1.1, 1],
@@ -61,7 +61,7 @@ const AnimatedBackground = () => {
       />
       
       <motion.div
-        className="absolute top-1/3 right-20 w-24 h-24 border border-pink-400/30 rounded-full"
+        className="absolute top-1/3 right-20 w-24 h-24 border border-rose-400/30 rounded-full"
         animate={{
           rotate: [360, 0],
           y: [-20, 20, -20],
@@ -74,7 +74,7 @@ const AnimatedBackground = () => {
       />
       
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg"
+        className="absolute bottom-1/4 left-1/4 w-20 h-20 bg-gradient-to-r from-pink-600/20 to-rose-600/20 rounded-lg"
         animate={{
           rotate: [0, 180, 360],
           scale: [1, 1.2, 1],
@@ -87,7 +87,7 @@ const AnimatedBackground = () => {
       />
 
       {/* Mesh Gradient Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-pink-900/10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-900/10 via-transparent to-blue-900/10" />
     </div>
   );
 };
