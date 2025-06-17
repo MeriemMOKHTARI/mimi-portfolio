@@ -10,33 +10,33 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Frontend Development",
-      skills: ["React", "Vue.js", "TypeScript", "Tailwind CSS", "Next.js"],
+      title: "AI/ML & Data Science",
+      skills: ["Natural Language Processing (NLP)", "Speech-to-Text (Vosk)", "Transformer Models", "Computer Vision (OpenCV)", "Sentiment Analysis", "Model Optimization"],
       color: "from-pink-400 to-pink-600"
     },
     {
-      title: "Backend Development",
-      skills: ["Node.js", "Python", "Express.js", "MongoDB", "PostgreSQL"],
+      title: "Mobile & Full-Stack Development",
+      skills: ["Flutter", "React.js", "Next.js", "Tailwind CSS", "Firebase", "Provider State Management", "Python", "Node.js"],
       color: "from-rose-400 to-rose-600"
     },
     {
-      title: "Mobile Development",
-      skills: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
+      title: "Cybersecurity",
+      skills: ["APT Analysis", "Blue Team Tools", "MITRE ATT&CK Framework", "ELK Stack", "YARA Rules", "Malware Analysis", "Incident Response"],
       color: "from-pink-500 to-rose-500"
     },
     {
-      title: "Cybersecurity",
-      skills: ["Penetration Testing", "Network Security", "OWASP", "Cryptography"],
+      title: "Network & Systems",
+      skills: ["Network Configuration", "Active Directory", "Windows System Administration", "Remote Device Management", "Network Monitoring"],
       color: "from-rose-500 to-pink-500"
     },
     {
-      title: "AI & Machine Learning",
-      skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP", "Data Science"],
+      title: "IoT & Embedded Systems",
+      skills: ["Raspberry Pi", "MQTT Protocol", "Edge Computing", "Sensor Integration", "Voice-Controlled Automation"],
       color: "from-pink-600 to-rose-400"
     },
     {
       title: "Tools & Technologies",
-      skills: ["Git", "Docker", "AWS", "Linux", "CI/CD"],
+      skills: ["Git", "Docker", "Ghidra", "Wireshark", "Volatility", "Linux", "Postman", "Figma"],
       color: "from-rose-600 to-pink-400"
     }
   ];
@@ -83,7 +83,7 @@ const Skills = () => {
                     className="flex items-center space-x-2"
                   >
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color}`}></div>
-                    <span className="text-gray-300">{skill}</span>
+                    <span className="text-gray-300 text-sm">{skill}</span>
                   </motion.div>
                 ))}
               </div>

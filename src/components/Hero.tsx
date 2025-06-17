@@ -2,12 +2,16 @@
 import { motion } from "framer-motion";
 import { Code, Shield, Smartphone, Brain, ArrowDown } from "lucide-react";
 
-const Hero = () => {
+interface HeroProps {
+  onNavigateToCategory: (category: string) => void;
+}
+
+const Hero = ({ onNavigateToCategory }: HeroProps) => {
   const roles = [
-    { icon: Code, text: "Web Developer" },
-    { icon: Smartphone, text: "Mobile Developer" },
-    { icon: Shield, text: "Cybersecurity" },
-    { icon: Brain, text: "AI Enthusiast" },
+    { icon: Smartphone, text: "Mobile Developer", category: "mobile" },
+    { icon: Code, text: "Web Developer", category: "web" },
+    { icon: Shield, text: "Cybersecurity", category: "security" },
+    { icon: Brain, text: "AI Enthusiast", category: "ai" },
   ];
 
   const scrollToPortfolio = () => {
@@ -54,11 +58,13 @@ const Hero = () => {
             {roles.map((role, index) => (
               <motion.div
                 key={role.text}
-                className="p-8 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 backdrop-blur-sm border border-pink-400/30 hover:border-pink-400/60 transition-all duration-300 group"
+                className="p-8 rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 backdrop-blur-sm border border-pink-400/30 hover:border-pink-400/60 transition-all duration-300 group cursor-pointer"
                 whileHover={{ scale: 1.05, y: -10 }}
+                whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                onClick={() => onNavigateToCategory(role.category)}
               >
                 <role.icon className="w-10 h-10 text-pink-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <p className="text-gray-300 font-medium text-lg">{role.text}</p>

@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, MapPin } from "lucide-react";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -10,19 +10,34 @@ const Contact = () => {
   });
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "your.email@example.com", href: "mailto:your.email@example.com" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: MapPin, label: "Location", value: "Your City, Country", href: "#" },
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "hm.mokhtari@esi-sba.dz",
+      link: "mailto:hm.mokhtari@esi-sba.dz"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+213 562 337 784",
+      link: "tel:+213562337784"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "meriem-mokhtari",
+      link: "https://www.linkedin.com/in/meriem-mokhtari-577808267/"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "MeriemMOKHTARI",
+      link: "https://github.com/MeriemMOKHTARI"
+    }
   ];
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20 px-6 bg-gradient-to-b from-slate-800 to-slate-900">
       <div className="container mx-auto">
         <motion.div
           ref={ref}
@@ -32,120 +47,92 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Touch</span>
+            Get In <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Let's collaborate on your next project or discuss opportunities in tech, cybersecurity, or AI.
+            Let's collaborate to turn your ideas into exceptional digital solutions
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="p-8 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-purple-500/20">
-              <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors duration-300"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors duration-300"
-                  />
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  {contactInfo.map((contact, index) => (
+                    <motion.a
+                      key={contact.label}
+                      href={contact.link}
+                      target={contact.label === "LinkedIn" || contact.label === "GitHub" ? "_blank" : undefined}
+                      rel={contact.label === "LinkedIn" || contact.label === "GitHub" ? "noopener noreferrer" : undefined}
+                      className="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300 group"
+                      whileHover={{ scale: 1.02, x: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    >
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-pink-400 to-rose-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <contact.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-pink-300 font-semibold">{contact.label}</p>
+                        <p className="text-gray-300">{contact.value}</p>
+                      </div>
+                    </motion.a>
+                  ))}
                 </div>
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors duration-300"
-                />
-                <textarea
-                  rows={6}
-                  placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors duration-300 resize-none"
-                />
-                <motion.button
-                  type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Send Message
-                </motion.button>
-              </form>
-            </div>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
-          >
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition-all duration-300 group"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">{item.label}</p>
-                    <p className="text-white font-medium">{item.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-
-            <div className="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-purple-500/20">
-              <h3 className="text-xl font-bold text-white mb-4">Follow Me</h3>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                    className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: 5 }}
-                  >
-                    <social.icon className="w-6 h-6 text-white" />
-                  </motion.a>
-                ))}
               </div>
-            </div>
+            </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="p-6 rounded-xl bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-400/30"
+              initial={{ opacity: 0, x: 50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative"
             >
-              <h3 className="text-xl font-bold text-white mb-3">Let's Work Together</h3>
-              <p className="text-gray-300">
-                I'm always interested in hearing about new projects and opportunities. 
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
-              </p>
+              <div className="p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl backdrop-blur-sm border border-pink-400/30 relative overflow-hidden">
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-rose-600/30 rounded-full blur-xl"></div>
+                <div className="relative">
+                  <h3 className="text-2xl font-bold text-white mb-6">Let's Work Together</h3>
+                  <p className="text-gray-300 mb-6">
+                    I'm always excited to take on new challenges and collaborate on innovative projects. 
+                    Whether you need mobile app development, web solutions, cybersecurity consulting, 
+                    or AI implementation, I'm here to help bring your vision to life.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                      <span className="text-gray-300">Available for freelance projects</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                      <span className="text-gray-300">Open to full-time opportunities</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                      <span className="text-gray-300">Consulting and technical expertise</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 p-4 bg-gradient-to-r from-pink-400/10 to-rose-400/10 rounded-lg border border-pink-400/20">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <MapPin className="w-5 h-5 text-pink-400" />
+                      <span className="text-white font-semibold">Based in Algeria</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">Available for remote work worldwide</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
