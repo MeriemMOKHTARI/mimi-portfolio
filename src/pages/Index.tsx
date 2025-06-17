@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import Contact from "../components/Contact";
 import ProjectCategory from "../components/ProjectCategory";
@@ -29,6 +30,7 @@ const Index = () => {
           <>
             <Hero onNavigateToCategory={handleNavigateToCategory} />
             <About />
+            <Projects />
             <Skills />
             <Contact />
           </>
