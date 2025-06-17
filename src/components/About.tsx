@@ -9,7 +9,7 @@ const About = () => {
   });
 
   return (
-    <section id="about" className="py-20 px-6">
+    <section id="about" className="min-h-screen py-20 px-6 bg-gradient-to-b from-slate-900 to-slate-800">
       <div className="container mx-auto">
         <motion.div
           ref={ref}
@@ -18,61 +18,71 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            About <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Me</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto"></div>
+          <motion.div
+            className="inline-block border-2 border-white px-12 py-6 mb-12"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-[0.2em]">
+              PORTFOLIO
+            </h2>
+          </motion.div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              As a dedicated Computer Systems student, I'm passionate about leveraging technology 
-              to create meaningful solutions. My journey spans across multiple domains, allowing 
-              me to approach problems from different perspectives.
+              I'm an Artificial Intelligence & Data Science Engineer, PhD Candidate, and Mobile Developer, 
+              having graduated from ESI-SBA. With a strong background in AI, data science, and mobile development, 
+              as well as expertise in UI/UX design, I've successfully managed various academic and professional projects.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              From crafting responsive web applications to developing secure mobile solutions, 
-              I thrive on challenges that push the boundaries of what's possible. My interest 
-              in cybersecurity ensures that security is always at the forefront of my development process.
+              My passion lies in creating innovative solutions that bridge the gap between cutting-edge technology 
+              and user-centered design. I specialize in developing secure, scalable applications while ensuring 
+              the highest standards of cybersecurity.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Currently exploring the fascinating world of AI and machine learning, I'm excited 
-              about the potential to integrate intelligent solutions into everyday applications.
+              Currently pursuing advanced research in AI and machine learning, I'm excited about the potential 
+              to integrate intelligent solutions into real-world applications that make a difference.
             </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
             className="relative"
           >
-            <div className="relative p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl backdrop-blur-sm border border-pink-500/20">
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-pink-600/30 to-rose-600/30 rounded-full blur-xl"></div>
+            <div className="relative p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl backdrop-blur-sm border border-pink-400/30">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-pink-600/30 rounded-full blur-xl"></div>
               <div className="relative space-y-4">
-                <h3 className="text-2xl font-bold text-white mb-4">Quick Facts</h3>
-                <div className="space-y-3">
+                <h3 className="text-2xl font-bold text-white mb-6">About Me</h3>
+                <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                    <span className="text-gray-300">🎓 Computer Systems Student</span>
+                    <span className="text-gray-300">🎓 PhD Candidate - AI & Data Science</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-rose-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                     <span className="text-gray-300">💻 Full-Stack Developer</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                    <span className="text-gray-300">🛡️ Security Focused</span>
+                    <span className="text-gray-300">📱 Mobile App Developer</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-rose-400 rounded-full"></div>
-                    <span className="text-gray-300">🤖 AI Enthusiast</span>
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    <span className="text-gray-300">🛡️ Cybersecurity Specialist</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                    <span className="text-gray-300">🎨 UI/UX Designer</span>
                   </div>
                 </div>
               </div>
