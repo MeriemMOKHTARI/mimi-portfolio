@@ -89,7 +89,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           title: "AI-Powered Traffic Management (SafeRoad)",
           description: "Web dashboard for traffic optimization with dynamic speed limits and smart traffic lights management",
           tech: ["React", "JSX", "Tailwind"],
-          image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          image: "src/assets/images/Map.png",
           gradient: "from-pink-400 to-rose-400",
           category: "AI/ML & Full-Stack"
         },
@@ -97,7 +97,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           title: "AI-powered Postal Service Analytics",
           description: "Web dashboard for sentiment analysis of social media and QR feedback with data visualization",
           tech: ["React", "JSX", "Tailwind"],
-          image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
+          image: "src/assets/images/inovpost-web.jpg",
           gradient: "from-rose-400 to-pink-600",
           category: "AI/ML & Full-Stack",
           award: "🏆 Inov 2nd Place 2024"
@@ -106,7 +106,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           title: "StockKeep Inventory Web",
           description: "Web-based inventory management system with automated tracking and analytics dashboard",
           tech: ["React", "JSX", "Tailwind"],
-          image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
+          image: "src/assets/images/Storekeeper-Receipt 1.png",
           gradient: "from-pink-600 to-rose-400",
           category: "Full-Stack & Mobile",
           subtitle: "ESI Sidi Bel Abbès Academic Project"
