@@ -1,7 +1,6 @@
-
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github, ArrowLeft } from "lucide-react";
+import { ExternalLink, Github, ArrowLeft, Smartphone, Globe } from "lucide-react";
 
 interface Project {
   title: string;
@@ -12,6 +11,7 @@ interface Project {
   award?: string;
   category?: string;
   subtitle?: string;
+  github?: string | { web?: string; app?: string; admin?: string };
 }
 
 interface ProjectCategoryProps {
@@ -35,7 +35,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["Flutter", "Provider State Management", "Firebase"],
           image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
           gradient: "from-pink-400 to-rose-400",
-          category: "AI/ML & Full-Stack"
+          category: "AI/ML & Full-Stack",
+          github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
         },
         {
           title: "AI-powered Postal Service Analytics",
@@ -44,7 +45,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
           gradient: "from-rose-400 to-pink-600",
           category: "AI/ML & Full-Stack",
-          award: "🏆 Inov 2nd Place 2024"
+          award: "🏆 Inov 2nd Place 2024",
+          github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-App"
         },
         {
           title: "AI-Powered Book App",
@@ -53,7 +55,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
           gradient: "from-pink-600 to-rose-400",
           category: "Mobile & AI",
-          award: "🏆 3rd Place MobAI Hackathon"
+          award: "🏆 3rd Place MobAI Hackathon",
+          github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
         },
         {
           title: "StockKeep Inventory App",
@@ -62,7 +65,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
           gradient: "from-rose-600 to-pink-400",
           category: "Full-Stack & Mobile",
-          subtitle: "ESI Sidi Bel Abbès Academic Project"
+          subtitle: "ESI Sidi Bel Abbès Academic Project",
+          github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
         },
         {
           title: "Chrily - Multi-Vendor E-Commerce",
@@ -70,7 +74,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["Flutter", "Provider State Management", "Firebase"],
           image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
           gradient: "from-pink-500 to-rose-500",
-          category: "Mobile Development"
+          category: "Mobile Development",
+          github: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App"
         },
         {
           title: "Needy - Geolocation-Based App",
@@ -78,7 +83,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["Flutter", "Provider State Management", "Firebase"],
           image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
           gradient: "from-rose-500 to-pink-500",
-          category: "Mobile Development"
+          category: "Mobile Development",
+          github: "https://github.com/MeriemMOKHTARI/NeedyApp"
         }
       ]
     },
@@ -91,7 +97,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["React", "JSX", "Tailwind"],
           image: "src/assets/images/Map.png",
           gradient: "from-pink-400 to-rose-400",
-          category: "AI/ML & Full-Stack"
+          category: "AI/ML & Full-Stack",
+          github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
         },
         {
           title: "AI-powered Postal Service Analytics",
@@ -100,7 +107,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "src/assets/images/inovpost-web.jpg",
           gradient: "from-rose-400 to-pink-600",
           category: "AI/ML & Full-Stack",
-          award: "🏆 Inov 2nd Place 2024"
+          award: "🏆 Inov 2nd Place 2024",
+          github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
         },
         {
           title: "StockKeep Inventory Web",
@@ -109,7 +117,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "src/assets/images/Storekeeper-Receipt 1.png",
           gradient: "from-pink-600 to-rose-400",
           category: "Full-Stack & Mobile",
-          subtitle: "ESI Sidi Bel Abbès Academic Project"
+          subtitle: "ESI Sidi Bel Abbès Academic Project",
+          github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
         }
       ]
     },
@@ -135,7 +144,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["AI/ML", "Computer Vision", "IoT"],
           image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
           gradient: "from-pink-400 to-rose-400",
-          category: "AI/ML & Full-Stack"
+          category: "AI/ML & Full-Stack",
+          github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
         },
         {
           title: "AI-Automated IoT Voice Assistant",
@@ -143,7 +153,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           tech: ["AI/ML", "IoT", "Voice Recognition"],
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
           gradient: "from-rose-400 to-pink-600",
-          category: "AI/ML & IoT"
+          category: "AI/ML & IoT",
+          github: "https://github.com/MeriemMOKHTARI/AI-IoT-Voice-Assistant-for-Smart-Living"
         },
         {
           title: "AI-powered Postal Service Analytics",
@@ -152,7 +163,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
           gradient: "from-pink-600 to-rose-400",
           category: "AI/ML & Full-Stack",
-          award: "🏆 Inov 2nd Place 2024"
+          award: "🏆 Inov 2nd Place 2024",
+          github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
         },
         {
           title: "AI-Powered Book App",
@@ -161,7 +173,8 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
           gradient: "from-rose-600 to-pink-400",
           category: "Mobile & AI",
-          award: "🏆 3rd Place MobAI Hackathon"
+          award: "🏆 3rd Place MobAI Hackathon",
+          github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
         }
       ]
     }
@@ -169,6 +182,74 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
 
   const categoryData = projectData[category];
   if (!categoryData) return null;
+
+  const renderGithubLinks = (project: Project) => {
+    if (typeof project.github === 'string') {
+      return (
+        <motion.a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center space-x-2 text-pink-400 hover:text-pink-300 transition-colors duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Github className="w-4 h-4" />
+          <span className="text-sm">Code</span>
+        </motion.a>
+      );
+    }
+
+    if (typeof project.github === 'object') {
+      return (
+        <div className="flex space-x-3">
+          {project.github.web && (
+            <motion.a
+              href={project.github.web}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-pink-400 hover:text-pink-300 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-4 h-4" />
+              <Globe className="w-3 h-3" />
+              <span className="text-sm">Web</span>
+            </motion.a>
+          )}
+          {project.github.app && (
+            <motion.a
+              href={project.github.app}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-pink-400 hover:text-pink-300 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-4 h-4" />
+              <Smartphone className="w-3 h-3" />
+              <span className="text-sm">App</span>
+            </motion.a>
+          )}
+          {project.github.admin && (
+            <motion.a
+              href={project.github.admin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-pink-400 hover:text-pink-300 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github className="w-4 h-4" />
+              <span className="text-sm">Admin</span>
+            </motion.a>
+          )}
+        </div>
+      );
+    }
+
+    return null;
+  };
 
   return (
     <section className="min-h-screen py-20 px-4 sm:px-6">
@@ -221,7 +302,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-contain bg-slate-900/50 group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
                 {project.award && (
@@ -262,15 +343,10 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
                   ))}
                 </div>
                 
-                <div className="flex space-x-4">
-                  <motion.button
-                    className="flex items-center space-x-2 text-pink-400 hover:text-pink-300 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github className="w-4 h-4" />
-                    <span className="text-sm">Code</span>
-                  </motion.button>
+                <div className="flex items-center justify-between">
+                  <div className="flex space-x-4">
+                    {renderGithubLinks(project)}
+                  </div>
                   <motion.button
                     className="flex items-center space-x-2 text-rose-400 hover:text-rose-300 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
