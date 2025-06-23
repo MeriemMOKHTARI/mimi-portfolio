@@ -16,7 +16,18 @@ import {
   Server,
   Coffee,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Shield,
+  Brain,
+  Cpu,
+  Network,
+  Eye,
+  Search,
+  BarChart3,
+  Wifi,
+  HardDrive,
+  Terminal,
+  Lock
 } from "lucide-react";
 
 const Skills = () => {
@@ -28,26 +39,95 @@ const Skills = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout>();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const skills = [
-    { name: "React", icon: <Layers className="w-8 h-8" />, color: "from-cyan-400 to-blue-500" },
-    { name: "Next.js", icon: <Globe className="w-8 h-8" />, color: "from-gray-700 to-black" },
-    { name: "JavaScript", icon: <Code className="w-8 h-8" />, color: "from-yellow-400 to-orange-500" },
-    { name: "TypeScript", icon: <Code className="w-8 h-8" />, color: "from-blue-400 to-blue-600" },
-    { name: "Python", icon: <Coffee className="w-8 h-8" />, color: "from-green-400 to-blue-500" },
-    { name: "Flutter", icon: <Chrome className="w-8 h-8" />, color: "from-blue-300 to-cyan-400" },
-    { name: "Firebase", icon: <Zap className="w-8 h-8" />, color: "from-orange-400 to-red-500" },
-    { name: "Node.js", icon: <Server className="w-8 h-8" />, color: "from-green-400 to-green-600" },
-    { name: "HTML5", icon: <Globe className="w-8 h-8" />, color: "from-orange-400 to-red-500" },
-    { name: "Tailwind CSS", icon: <Layers className="w-8 h-8" />, color: "from-cyan-400 to-blue-500" },
-    { name: "MongoDB", icon: <Database className="w-8 h-8" />, color: "from-green-400 to-green-600" },
-    { name: "Docker", icon: <Container className="w-8 h-8" />, color: "from-blue-400 to-cyan-500" },
-    { name: "GitHub", icon: <Github className="w-8 h-8" />, color: "from-gray-600 to-gray-800" },
-    { name: "GitLab", icon: <Gitlab className="w-8 h-8" />, color: "from-orange-500 to-red-600" },
-    { name: "Figma", icon: <Figma className="w-8 h-8" />, color: "from-purple-400 to-pink-500" },
-    { name: "Java", icon: <Coffee className="w-8 h-8" />, color: "from-red-500 to-orange-600" },
-    { name: "Dart", icon: <Code className="w-8 h-8" />, color: "from-blue-400 to-cyan-500" },
-    { name: "Redux", icon: <Layers className="w-8 h-8" />, color: "from-purple-500 to-purple-700" },
+    { name: "React", icon: <Layers className="w-8 h-8" /> },
+    { name: "Next.js", icon: <Globe className="w-8 h-8" /> },
+    { name: "JavaScript", icon: <Code className="w-8 h-8" /> },
+    { name: "TypeScript", icon: <Code className="w-8 h-8" /> },
+    { name: "Python", icon: <Coffee className="w-8 h-8" /> },
+    { name: "Flutter", icon: <Chrome className="w-8 h-8" /> },
+    { name: "Firebase", icon: <Zap className="w-8 h-8" /> },
+    { name: "Node.js", icon: <Server className="w-8 h-8" /> },
+    { name: "HTML5", icon: <Globe className="w-8 h-8" /> },
+    { name: "Tailwind CSS", icon: <Layers className="w-8 h-8" /> },
+    { name: "MongoDB", icon: <Database className="w-8 h-8" /> },
+    { name: "Docker", icon: <Container className="w-8 h-8" /> },
+    { name: "GitHub", icon: <Github className="w-8 h-8" /> },
+    { name: "GitLab", icon: <Gitlab className="w-8 h-8" /> },
+    { name: "Figma", icon: <Figma className="w-8 h-8" /> },
+    { name: "Java", icon: <Coffee className="w-8 h-8" /> },
+    { name: "Dart", icon: <Code className="w-8 h-8" /> },
+    { name: "Redux", icon: <Layers className="w-8 h-8" /> },
+  ];
+
+  // Specialized skill categories for carousel
+  const skillCategories = [
+    {
+      title: "Cybersecurity",
+      icon: <Shield className="w-12 h-12" />,
+      gradient: "from-red-500/20 to-orange-500/20",
+      borderGradient: "from-red-400 to-orange-400",
+      skills: [
+        "APT Analysis and Simulation",
+        "Blue Team Tools and Techniques", 
+        "Windows Forensics and Persistence Detection",
+        "Incident Response",
+        "Threat Detection and Response",
+        "MITRE ATT&CK Framework",
+        "ELK Stack",
+        "YARA Rules",
+        "Malware Analysis and Detection"
+      ]
+    },
+    {
+      title: "AI/ML & Data Science",
+      icon: <Brain className="w-12 h-12" />,
+      gradient: "from-purple-500/20 to-pink-500/20",
+      borderGradient: "from-purple-400 to-pink-400",
+      skills: [
+        "Natural Language Processing (NLP)",
+        "Speech-to-Text (Vosk)",
+        "Transformer Models (Tiny-BERT, SmoILM)",
+        "Computer Vision (OpenCV)",
+        "Sentiment Analysis",
+        "Model Optimization (Edge AI)",
+        "Data Visualization (ELK, PowerBI)"
+      ]
+    },
+    {
+      title: "IoT & Embedded Systems",
+      icon: <Cpu className="w-12 h-12" />,
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      borderGradient: "from-blue-400 to-cyan-400",
+      skills: [
+        "Raspberry Pi",
+        "MQTT Protocol",
+        "Edge Computing",
+        "Sensor Integration",
+        "Voice-Controlled Automation",
+        "GPIO/PWM Device Control"
+      ]
+    },
+    {
+      title: "Network & Systems",
+      icon: <Network className="w-12 h-12" />,
+      gradient: "from-green-500/20 to-teal-500/20",
+      borderGradient: "from-green-400 to-teal-400",
+      skills: [
+        "Network Configuration",
+        "Active Directory",
+        "Windows System Administration",
+        "Remote Device Management",
+        "Network Monitoring & Troubleshooting",
+        "Software Development",
+        "Reverse Engineering",
+        "Forensics",
+        "Linux",
+        "Windows"
+      ]
+    }
   ];
 
   // Duplicate skills for seamless loop
@@ -62,9 +142,9 @@ const Skills = () => {
       if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2) {
         scrollContainer.scrollLeft = 0;
       } else {
-        scrollContainer.scrollLeft += 0.5; // Slower speed
+        scrollContainer.scrollLeft += 0.3;
       }
-    }, 20); // Slower interval
+    }, 30);
   };
 
   const stopAutoScroll = () => {
@@ -88,6 +168,19 @@ const Skills = () => {
     setIsAutoScrolling(false);
     scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
     setTimeout(() => setIsAutoScrolling(true), 2000);
+  };
+
+  // Carousel navigation
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % skillCategories.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + skillCategories.length) % skillCategories.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
   };
 
   useEffect(() => {
@@ -116,6 +209,23 @@ const Skills = () => {
     };
   }, []);
 
+  // Handle wheel scroll for carousel
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY > 0) {
+        nextSlide();
+      } else if (e.deltaY < 0) {
+        prevSlide();
+      }
+    };
+
+    const carouselSection = document.getElementById('skills-carousel');
+    if (carouselSection) {
+      carouselSection.addEventListener('wheel', handleWheel, { passive: true });
+      return () => carouselSection.removeEventListener('wheel', handleWheel);
+    }
+  }, []);
+
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background Effects */}
@@ -138,7 +248,7 @@ const Skills = () => {
           <p className="text-gray-300 text-lg">Technologies I work with</p>
         </motion.div>
 
-        {/* Navigation Controls */}
+        {/* Navigation Controls for basic skills */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -150,29 +260,25 @@ const Skills = () => {
             className="group relative p-3 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-pink-500/30 hover:border-pink-400 transition-all duration-300"
           >
             <ChevronLeft className="w-6 h-6 text-pink-400 group-hover:text-pink-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
           </button>
           <button
             onClick={scrollRight}
             className="group relative p-3 bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-pink-500/30 hover:border-pink-400 transition-all duration-300"
           >
             <ChevronRight className="w-6 h-6 text-pink-400 group-hover:text-pink-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
           </button>
         </motion.div>
 
-        {/* Scrolling Skills Container */}
+        {/* Basic Skills Horizontal Scroll */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="relative"
+          className="relative mb-20"
         >
-          {/* Gradient Overlays */}
           <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
 
-          {/* Skills Scroll Container */}
           <div
             ref={scrollRef}
             className="flex gap-8 overflow-x-auto py-8 cursor-grab active:cursor-grabbing scrollbar-hide"
@@ -185,40 +291,112 @@ const Skills = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className="relative">
-                  {/* 3D Card Effect with enhanced shadows */}
-                  <div className={`w-28 h-28 bg-gradient-to-br ${skill.color} rounded-3xl flex items-center justify-center shadow-2xl transform-gpu transition-all duration-500 group-hover:shadow-pink-500/50 group-hover:shadow-3xl relative overflow-hidden`}>
-                    {/* Animated background pattern */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 rounded-3xl"></div>
-                    
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-                    
-                    {/* Icon container */}
-                    <div className="relative z-10 text-white filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-28 h-28 bg-slate-800/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-pink-500/20 hover:border-pink-400/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-pink-500/25">
+                    <div className="relative z-10 text-pink-400 group-hover:text-pink-300 transition-colors duration-300">
                       {skill.icon}
                     </div>
-                    
-                    {/* 3D border effect */}
-                    <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute inset-0.5 bg-gradient-to-br from-slate-800/90 to-slate-900/90 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                   
-                  {/* Skill Name */}
                   <div className="mt-4 text-center">
-                    <span className="text-sm font-bold text-white group-hover:text-pink-400 transition-colors duration-300 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text group-hover:text-transparent">
+                    <span className="text-sm font-bold text-white group-hover:text-pink-400 transition-colors duration-300">
                       {skill.name}
                     </span>
                   </div>
-                  
-                  {/* Floating particles */}
-                  <div className="absolute -top-3 -right-3 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300"></div>
-                  <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500 delay-150"></div>
-                  
-                  {/* Reflection effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/20 rounded-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Specialized Skills Carousel */}
+        <motion.div
+          id="skills-carousel"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="relative"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Specialized <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Expertise</span>
+            </h3>
+            <p className="text-gray-400">Scroll horizontally to explore different domains</p>
+          </div>
+
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {skillCategories.map((category, index) => (
+                <div key={category.title} className="w-full flex-shrink-0 px-4">
+                  <motion.div
+                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border-2 border-gradient bg-slate-900/40`}
+                    style={{
+                      borderImage: `linear-gradient(135deg, ${category.borderGradient.replace('from-', '').replace('to-', ', ')}) 1`
+                    }}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="text-center mb-8">
+                      <div className={`inline-flex p-4 rounded-full bg-gradient-to-r ${category.borderGradient} mb-4`}>
+                        <div className="text-white">
+                          {category.icon}
+                        </div>
+                      </div>
+                      <h4 className="text-2xl font-bold text-white mb-2">{category.title}</h4>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skill}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: skillIndex * 0.1 }}
+                          className="flex items-center space-x-3 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300"
+                        >
+                          <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full"></div>
+                          <span className="text-gray-300 text-sm font-medium">{skill}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Carousel Navigation */}
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div className="flex space-x-2">
+              {skillCategories.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'bg-gradient-to-r from-pink-400 to-rose-400'
+                      : 'bg-slate-600 hover:bg-slate-500'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </motion.div>
 
@@ -226,12 +404,12 @@ const Skills = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-8"
         >
           <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
             <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
-            Use arrow buttons or hover to control • Auto-scrolling enabled
+            Use mouse wheel or navigation buttons to explore specialized skills
             <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
           </p>
         </motion.div>
