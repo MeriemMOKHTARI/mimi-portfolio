@@ -13,8 +13,8 @@ const Projects = () => {
     {
       title: "AI-Automated IoT Voice Assistant for Smart Living",
       description: "Built offline voice assistant using Vosk (STT) and Tiny-BERT (95% accuracy) on Raspberry Pi. Designed MQTT-based IoT control for smart devices. Developed SVM speaker recognition for secure authentication.",
-      tech: ["AI/ML", "IoT", "Vosk", "Tiny-BERT", "Raspberry Pi", "MQTT", "SVM"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+      tech: ["AI/ML","LLM", "IoT", "Vosk", "Tiny-BERT", "Raspberry Pi", "MQTT", "SVM"],
+      image: "src/assets/images/iot.jpg",
       gradient: "from-pink-400 to-rose-400",
       category: "AI/ML & IoT",
       github: "https://github.com/MeriemMOKHTARI/AI-IoT-Voice-Assistant-for-Smart-Living"
@@ -23,29 +23,52 @@ const Projects = () => {
       title: "APT Detection & Cybersecurity Analysis",
       description: "Researched APT groups, simulated attacks, and developed MITRE ATT&CK-based detection rules for Windows environments. Deployed ELK stack for threat monitoring and authored custom detection rules to identify persistence mechanisms/IoCs.",
       tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules", "Windows Security", "Blue Team"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop",
+      image: "src/assets/images/velo.png",
       gradient: "from-rose-400 to-pink-600",
-      category: "Cybersecurity"
+      category: "Cybersecurity",
+       github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
+
     },
     {
-      title: "AI-Powered Traffic Management (SafeRoad)",
-      description: "Developed AI-driven traffic optimization system using computer vision for dynamic speed limits and smart traffic lights. Built real-time analytics dashboard and mobile app for accident alerts and transport integration.",
-      tech: ["AI/ML", "Computer Vision", "React", "Flutter", "Firebase", "IoT"],
-      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
-      gradient: "from-pink-600 to-rose-400",
-      category: "AI/ML & Full-Stack",
+      title: "AI-Powered Book App",
+      description: "Developed Flutter mobile app with NLP-driven book recommendations and voice-enabled AI assistant. Integrated mood/interest-based search and purchase features. Trained models for fake face detection and code prediction. Won 3rd Place MobAI Hackathon.",
+      tech: ["Flutter", "NLP", "AI/ML", "Computer Vision", "Firebase", "Voice AI","Chatboat"],
+      image: "src/assets/images/bookini.jpg",
+      gradient: "from-pink-500 to-rose-500",
+      category: "Mobile & AI",
+      award: "🏆 MobAI 3rd Place 2025",
+      github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
+    },
+     {
+      title: "Chrily Multi-Vendor E-Commerce Platform",
+      description: "Developed Flutter mobile app with Firebase backend for a marketplace connecting multiple sellers and buyers. Features vendor onboarding, store management dashboards, admin panel for product/category/banner management, and order processing with delivery scheduling.",
+      tech: ["Flutter", "Firebase", "E-Commerce", "Multi-Vendor", "Admin Panel"],
+      image: "src/assets/images/chrily.jpg",
+      gradient: "from-pink-400 to-rose-600",
+      category: "Mobile App & Web",
       github: {
-        web: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web",
-        app: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
+        app: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App",
+        admin: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-Admin"
       }
     },
-    {
+        {
+          title: "Key2QR - Forensics CTF Challenge",
+          description: "Created a forensics CTF challenge, where participants repair a corrupted GIF to extract a key and the first part of a flag, then use the key to decrypt a locked QR code revealing the second part. Involves fixing the GIF header, extracting frames, and scanning the QR code with tools like hexedit, ffmpeg, eog, gpg, and zbarimg",
+          tech: ["Forensics","hexedit", "ffmpeg"," eog", "gpg", "zbarimg","GIF Analysis","QR Code Decryption","CTF"],
+          image: "src/assets/images/qrcode.jpg",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+          award: "🏆 CTF author",
+         github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/Key2QR"
+
+        },
+           {
       title: "AI-Powered Postal Service Analytics",
       description: "Created AI-powered dashboard for sentiment analysis of social media/QR feedback. Designed mobile app with chat support and video tutorials to enhance customer experience. Won Inov 2nd Place post Hackathon 2024.",
       tech: ["AI/ML", "NLP", "Sentiment Analysis", "React", "Flutter", "Firebase"],
-      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop",
+      image: "src/assets/images/baridi.jpg",
       gradient: "from-rose-600 to-pink-400",
-      category: "AI/ML & Full-Stack",
+      category: "AI/ML & Mob App & Web",
       award: "🏆 Inov 2nd Place 2024",
       github: {
         web: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web",
@@ -53,46 +76,61 @@ const Projects = () => {
       }
     },
     {
-      title: "AI-Powered Book App",
-      description: "Developed Flutter mobile app with NLP-driven book recommendations and voice-enabled AI assistant. Integrated mood/interest-based search and purchase features. Trained models for fake face detection and code prediction. Won 3rd Place MobAI Hackathon.",
-      tech: ["Flutter", "NLP", "AI/ML", "Computer Vision", "Firebase", "Voice AI"],
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
-      gradient: "from-pink-500 to-rose-500",
-      category: "Mobile & AI",
-      award: "🏆 3rd Place MobAI Hackathon",
-      github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
+      title: "AI-Traffic Management (SafeRoad)",
+      description: "Developed AI-driven traffic optimization system using computer vision for dynamic speed limits and smart traffic lights. Built real-time analytics dashboard and mobile app for accident alerts and transport integration.",
+      tech: ["AI/ML", "Computer Vision", "React", "Flutter", "Firebase", "IoT"],
+      image: "src/assets/images/saferoad.jpg",
+      gradient: "from-pink-600 to-rose-400",
+      category: "AI/ML & Mob App & Web",
+      github: {
+        web: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web",
+        app: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
+      }
     },
+ 
+
     {
       title: "StockKeep Inventory System",
       description: "Automated stock tracking (orders, deliveries, expiry alerts). Role-based dashboards (Admin, Storekeeper, Director) using React/Next.js + Django. Real-time notifications and data analytics.",
       tech: ["React", "Next.js", "Django", "Flutter", "Firebase", "Real-time"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop",
+      image: "src/assets/images/stock.jpg",
       gradient: "from-rose-500 to-pink-500",
-      category: "Full-Stack & Mobile",
-      subtitle: "ESI Sidi Bel Abbès Academic Project",
+      category: "Web & Mobile",
+      subtitle: "ESI Academic Project",
       github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
     },
+      {
+          title: "ColorPNG - Forensics CTF Challenge",
+          description: "Created a forensics CTF challenge,where a hidden flag is embedded in the red channel of a PNG image using steganography. The flag is encoded as ASCII values in consecutive pixels, terminated by a red value of 0. Provided a Python script using the PIL library to extract the flag by analyzing pixel data.",
+          tech: ["Forensics","Steganography","Image Analysis","Python","CTF","Pixel Manipulation"],
+          image: "src/assets/images/spectrum_art.bmp",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+          award: "🏆 CTF author",
+         github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/ColorPNG"
+
+        },
+   
     {
-      title: "Chrily - Multi-Vendor E-Commerce Platform",
-      description: "Developed Flutter mobile app with Firebase backend for a marketplace connecting multiple sellers and buyers. Features vendor onboarding, store management dashboards, admin panel for product/category/banner management, and order processing with delivery scheduling.",
-      tech: ["Flutter", "Firebase", "E-Commerce", "Multi-Vendor", "Admin Panel"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      gradient: "from-pink-400 to-rose-600",
-      category: "Mobile Development",
-      github: {
-        app: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App",
-        admin: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-Admin"
-      }
-    },
-    {
-      title: "Needy - Geolocation-Based Mobile Application",
+      title: "Needy Geolocation-Based Mobile Application",
       description: "Developed a Flutter mobile app connecting users with nearby assistance services using real-time geolocation. Features dynamic help matching system, dual functionality for requesting/offering services, interactive map interface, and donation system for free help exchanges.",
       tech: ["Flutter", "Geolocation", "Maps", "Real-time", "Firebase", "Location Services"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      image: "src/assets/images/needy.jpg",
       gradient: "from-rose-600 to-pink-400",
-      category: "Mobile Development",
+      category: "Mobile App",
       github: "https://github.com/MeriemMOKHTARI/NeedyApp"
-    }
+    },
+   
+       {
+          title: "Reverse Shells & Backdoors Analysis",
+          description: "Research and analysis on reverse shells and backdoors, including a practical demonstration.",
+          tech: ["Backdoors", "Reverse Shells", "NC",,"MSFVenom","Blue Team"],
+          image: "src/assets/images/reverse.jpg",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+         github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
+
+        }
   ];
 
   const renderGithubLinks = (project: any) => {
@@ -236,14 +274,14 @@ const Projects = () => {
                   <div className="flex space-x-4">
                     {renderGithubLinks(project)}
                   </div>
-                  <motion.button
+                  {/* <motion.button
                     className="flex items-center space-x-2 text-rose-400 hover:text-rose-300 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span className="text-sm">Demo</span>
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </div>
             </motion.div>

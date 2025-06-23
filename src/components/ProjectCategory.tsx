@@ -30,39 +30,39 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
       title: "Mobile App Projects",
       projects: [
         {
-          title: "AI-Powered Traffic Management (SafeRoad)",
+          title: "AI-Traffic Management (SafeRoad)",
           description: "AI-driven traffic optimization system with real-time analytics dashboard and mobile app for accident alerts",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+          image: "src/assets/images/ibtikar.jpg",
           gradient: "from-pink-400 to-rose-400",
           category: "AI/ML & Full-Stack",
           github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
         },
         {
-          title: "AI-powered Postal Service Analytics",
+          title: "AI-Postal Service Analytics",
           description: "AI-powered dashboard for sentiment analysis with mobile app and chat support. Won Inov 2nd Place 2024",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
+          image: "src/assets/images/inovpost.jpg",
           gradient: "from-rose-400 to-pink-600",
           category: "AI/ML & Full-Stack",
           award: "🏆 Inov 2nd Place 2024",
           github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-App"
         },
         {
-          title: "AI-Powered Book App",
+          title: "AI-Book App",
           description: "Flutter mobile app with NLP-driven recommendations and voice-enabled AI assistant. Won 3rd Place MobAI Hackathon",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+          image: "src/assets/images/bookini.jpg",
           gradient: "from-pink-600 to-rose-400",
           category: "Mobile & AI",
-          award: "🏆 3rd Place MobAI Hackathon",
+          award: "🏆 MobAI 3rd Place MobAI 2025",
           github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
         },
         {
           title: "StockKeep Inventory App",
           description: "Automated stock tracking with orders, deliveries, expiry alerts and role-based dashboards",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
+          image: "src/assets/images/stockkeep.jpg",
           gradient: "from-rose-600 to-pink-400",
           category: "Full-Stack & Mobile",
           subtitle: "ESI Sidi Bel Abbès Academic Project",
@@ -72,7 +72,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           title: "Chrily - Multi-Vendor E-Commerce",
           description: "Multi-vendor marketplace connecting sellers and buyers with store management and order processing",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+          image: "src/assets/images/test.jpg",
           gradient: "from-pink-500 to-rose-500",
           category: "Mobile Development",
           github: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App"
@@ -81,10 +81,10 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           title: "Needy - Geolocation-Based App",
           description: "Connecting users with nearby assistance services using real-time geolocation and interactive maps",
           tech: ["Flutter", "Provider State Management", "Firebase"],
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+          image: "src/assets/images/needy.jpg",
           gradient: "from-rose-500 to-pink-500",
           category: "Mobile Development",
-          github: "https://github.com/MeriemMOKHTARI/NeedyApp"
+          github: "https://github.com/MeriemMOKHTARI/Needy"
         }
       ]
     },
@@ -128,39 +128,72 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
         {
           title: "APT Detection & Cybersecurity Analysis",
           description: "Research on APT groups with MITRE ATT&CK-based detection rules and ELK stack deployment for threat monitoring",
-          tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules"],
-          image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+          tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules","Blue Team"],
+          image: "src/assets/images/velo.png",
           gradient: "from-rose-600 to-pink-400",
-          category: "Cybersecurity"
-        }
+          category: "Cybersecurity",
+         github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
+
+        },
+         {
+          title: "Key2QR - Forensics CTF Challenge",
+          description: "Created a forensics CTF challenge, where participants repair a corrupted GIF to extract a key and the first part of a flag, then use the key to decrypt a locked QR code revealing the second part. Involves fixing the GIF header, extracting frames, and scanning the QR code with tools like hexedit, ffmpeg, eog, gpg, and zbarimg",
+          tech: ["Forensics","hexedit", "ffmpeg"," eog", "gpg", "zbarimg","GIF Analysis","QR Code Decryption","CTF"],
+          image: "src/assets/images/qrcode.jpg",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+          award: "🏆 CTF author",
+         github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/Key2QR"
+
+        },
+          {
+          title: "Reverse Shells & Backdoors Analysis",
+          description: "Research and analysis on reverse shells and backdoors, including a practical demonstration.",
+          tech: ["Backdoors", "Reverse Shells", "NC",,"MSFVenom","Blue Team"],
+          image: "src/assets/images/reverse.jpg",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+
+        },
+          {
+          title: "ColorPNG - Forensics CTF Challenge",
+          description: "Created a forensics CTF challenge,where a hidden flag is embedded in the red channel of a PNG image using steganography. The flag is encoded as ASCII values in consecutive pixels, terminated by a red value of 0. Provided a Python script using the PIL library to extract the flag by analyzing pixel data.",
+          tech: ["Forensics","Steganography","Image Analysis","Python","CTF","Pixel Manipulation"],
+          image: "src/assets/images/spectrum_art.bmp",
+          gradient: "from-rose-600 to-pink-400",
+          category: "Cybersecurity",
+          award: "🏆 CTF author",
+         github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/ColorPNG"
+
+        },
       ]
     },
     ai: {
       title: "AI & Machine Learning Projects",
       projects: [
-        {
-          title: "AI-Powered Traffic Management (SafeRoad)",
-          description: "Computer vision-based traffic optimization with dynamic speed control and smart analytics",
-          tech: ["AI/ML", "Computer Vision", "IoT"],
-          image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-          gradient: "from-pink-400 to-rose-400",
-          category: "AI/ML & Full-Stack",
-          github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
-        },
-        {
+          {
           title: "AI-Automated IoT Voice Assistant",
           description: "Offline voice assistant using Vosk and Tiny-BERT with MQTT-based IoT control and SVM speaker recognition",
-          tech: ["AI/ML", "IoT", "Voice Recognition"],
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+          tech: ["AI/ML", "IoT", "Voice Recognition","LLM"],
+          image: "src/assets/images/iot.jpg",
           gradient: "from-rose-400 to-pink-600",
           category: "AI/ML & IoT",
           github: "https://github.com/MeriemMOKHTARI/AI-IoT-Voice-Assistant-for-Smart-Living"
         },
         {
+          title: "AI-Powered Traffic Management (SafeRoad)",
+          description: "Computer vision-based traffic optimization with dynamic speed control and smart analytics",
+          tech: ["AI/ML", "Computer Vision", "IoT"],
+          image: "src/assets/images/Map.png",
+          gradient: "from-pink-400 to-rose-400",
+          category: "AI/ML & Full-Stack",
+          github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
+        },
+        {
           title: "AI-powered Postal Service Analytics",
           description: "Sentiment analysis AI system for social media and customer feedback processing",
           tech: ["AI/ML", "NLP", "Sentiment Analysis"],
-          image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&h=400&fit=crop",
+          image: "src/assets/images/inovpost-web.jpg",
           gradient: "from-pink-600 to-rose-400",
           category: "AI/ML & Full-Stack",
           award: "🏆 Inov 2nd Place 2024",
@@ -169,11 +202,11 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
         {
           title: "AI-Powered Book App",
           description: "NLP-driven book recommendations with mood/interest-based search and fake face detection models",
-          tech: ["AI/ML", "NLP", "Computer Vision"],
-          image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+          tech: ["AI/ML", "NLP", "Computer Vision","chatboat"],
+          image: "src/assets/images/bookini.jpg",
           gradient: "from-rose-600 to-pink-400",
           category: "Mobile & AI",
-          award: "🏆 3rd Place MobAI Hackathon",
+          award: "🏆 MobAI 3rd Place 2025",
           github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
         }
       ]
@@ -347,14 +380,14 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
                   <div className="flex space-x-4">
                     {renderGithubLinks(project)}
                   </div>
-                  <motion.button
+                  {/* <motion.button
                     className="flex items-center space-x-2 text-rose-400 hover:text-rose-300 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span className="text-sm">Demo</span>
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </div>
             </motion.div>

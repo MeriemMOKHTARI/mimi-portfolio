@@ -39,14 +39,14 @@ const About = () => {
           >
             <h3 className="text-3xl font-bold text-pink-400 mb-6">Who I am?</h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a 4th-year Computer Systems Engineering student at the Higher School of Computer Science 
+              I'm a final year Computer Systems Engineering student at the Higher School of Computer Science 
               and a Mobile & Web Developer at DATALOCK company, with a strong passion for cybersecurity 
-              experienced in digital forensics, blue teaming, and detection engineering—as well as a keen 
+              experienced in digital forensics, blue teaming, and detection engineering as well as a keen 
               interest in networks, AI, and UI/UX design.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
               I've completed several academic projects, freelance work, and internships. My diverse experience 
-              and passion for technology make me a valuable asset for your next project—let's collaborate to 
+              and passion for technology make me a valuable asset for your next project let's collaborate to 
               turn your ideas into exceptional digital solutions.
             </p>
             
@@ -89,7 +89,7 @@ const About = () => {
               <div className="relative">
                 <div className="w-64 h-80 bg-gradient-to-br from-pink-400/20 to-slate-700/50 rounded-xl flex items-center justify-center border border-pink-400/30">
                   <img 
-                    src="https://images.unsplash.com/photo-1494790108755-2616c96b4c5a?w=300&h=400&fit=crop&crop=face" 
+                    src="src/assets/images/me.jpg"
                     alt="Meriem Mokhtari" 
                     className="w-full h-full object-cover rounded-xl"
                   />
