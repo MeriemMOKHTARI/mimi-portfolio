@@ -20,14 +20,7 @@ import {
   Shield,
   Brain,
   Cpu,
-  Network,
-  Eye,
-  Search,
-  BarChart3,
-  Wifi,
-  HardDrive,
-  Terminal,
-  Lock
+  Network
 } from "lucide-react";
 
 const Skills = () => {
@@ -142,9 +135,9 @@ const Skills = () => {
       if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth - scrollContainer.clientWidth) / 2) {
         scrollContainer.scrollLeft = 0;
       } else {
-        scrollContainer.scrollLeft += 0.3;
+        scrollContainer.scrollLeft += 0.5;
       }
-    }, 30);
+    }, 50);
   };
 
   const stopAutoScroll = () => {
@@ -159,7 +152,7 @@ const Skills = () => {
     if (!scrollContainer) return;
     setIsAutoScrolling(false);
     scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
-    setTimeout(() => setIsAutoScrolling(true), 2000);
+    setTimeout(() => setIsAutoScrolling(true), 3000);
   };
 
   const scrollRight = () => {
@@ -167,7 +160,7 @@ const Skills = () => {
     if (!scrollContainer) return;
     setIsAutoScrolling(false);
     scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
-    setTimeout(() => setIsAutoScrolling(true), 2000);
+    setTimeout(() => setIsAutoScrolling(true), 3000);
   };
 
   // Carousel navigation
@@ -212,18 +205,19 @@ const Skills = () => {
   // Handle wheel scroll for carousel
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      if (e.deltaY > 0) {
-        nextSlide();
-      } else if (e.deltaY < 0) {
-        prevSlide();
+      const carouselSection = document.getElementById('skills-carousel');
+      if (carouselSection && carouselSection.contains(e.target as Node)) {
+        e.preventDefault();
+        if (e.deltaY > 0) {
+          nextSlide();
+        } else if (e.deltaY < 0) {
+          prevSlide();
+        }
       }
     };
 
-    const carouselSection = document.getElementById('skills-carousel');
-    if (carouselSection) {
-      carouselSection.addEventListener('wheel', handleWheel, { passive: true });
-      return () => carouselSection.removeEventListener('wheel', handleWheel);
-    }
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
   }, []);
 
   return (
@@ -291,8 +285,8 @@ const Skills = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className="relative">
-                  <div className="w-28 h-28 bg-slate-800/30 backdrop-blur-sm rounded-3xl flex items-center justify-center border border-pink-500/20 hover:border-pink-400/50 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-pink-500/25">
-                    <div className="relative z-10 text-pink-400 group-hover:text-pink-300 transition-colors duration-300">
+                  <div className="w-20 h-20 flex items-center justify-center">
+                    <div className="text-pink-400 group-hover:text-pink-300 transition-colors duration-300">
                       {skill.icon}
                     </div>
                   </div>
@@ -320,7 +314,7 @@ const Skills = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Specialized <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Expertise</span>
             </h3>
-            <p className="text-gray-400">Scroll horizontally to explore different domains</p>
+            <p className="text-gray-400">Scroll to explore different domains</p>
           </div>
 
           {/* Carousel Container */}
@@ -332,10 +326,7 @@ const Skills = () => {
               {skillCategories.map((category, index) => (
                 <div key={category.title} className="w-full flex-shrink-0 px-4">
                   <motion.div
-                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border-2 border-gradient bg-slate-900/40`}
-                    style={{
-                      borderImage: `linear-gradient(135deg, ${category.borderGradient.replace('from-', '').replace('to-', ', ')}) 1`
-                    }}
+                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-pink-500/30 bg-slate-900/40`}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -365,7 +356,7 @@ const Skills = () => {
                   </motion.div>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Carousel Navigation */}
