@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
@@ -19,9 +20,7 @@ import {
   Shield,
   Brain,
   Cpu,
-  Network,
-  ChevronUp,
-  ChevronDown
+  Network
 } from "lucide-react";
 
 const Skills = () => {
@@ -33,7 +32,6 @@ const Skills = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout>();
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   const skills = [
     { name: "React", icon: <Layers className="w-8 h-8" /> },
@@ -162,18 +160,6 @@ const Skills = () => {
     setTimeout(() => setIsAutoScrolling(true), 3000);
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % skillCategories.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + skillCategories.length) % skillCategories.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
   useEffect(() => {
     if (isAutoScrolling) {
       startAutoScroll();
@@ -198,23 +184,6 @@ const Skills = () => {
       scrollContainer.removeEventListener('mouseenter', handleMouseEnter);
       scrollContainer.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      const carouselSection = document.getElementById('skills-carousel');
-      if (carouselSection && carouselSection.contains(e.target as Node)) {
-        e.preventDefault();
-        if (e.deltaY > 0) {
-          nextSlide();
-        } else if (e.deltaY < 0) {
-          prevSlide();
-        }
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
   }, []);
 
   return (
@@ -297,103 +266,73 @@ const Skills = () => {
           </div>
         </motion.div>
 
+        {/* Specialized Expertise - Sticky Scroll Section */}
         <motion.div
-          id="skills-carousel"
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative"
+          className="relative my-24"
         >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Specialized <span className="bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">Expertise</span>
-            </h3>
-            <p className="text-gray-400">Scroll to explore different domains</p>
+          <div className="sticky top-10 mb-12">
+            <div className="w-20 h-20 bg-pink-500/10 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl opacity-30"></div>
+            <div className="flex items-center justify-start relative">
+              <span className="bg-slate-900 absolute left-0 w-fit text-white px-5 py-3 text-xl rounded-md border border-pink-500/30">
+                SPECIALIZED EXPERTISE
+              </span>
+              <span className="w-full h-[2px] bg-gradient-to-r from-pink-400 to-rose-400"></span>
+            </div>
           </div>
 
-          <div className="relative overflow-hidden max-w-4xl mx-auto" style={{ height: '600px' }}>
-            <motion.div
-              className="flex flex-col transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateY(-${currentSlide * 100}%)` }}
-            >
+          <div className="pt-12">
+            <div className="flex flex-col gap-12">
               {skillCategories.map((category, index) => (
-                <div key={category.title} className="w-full flex-shrink-0 px-4" style={{ height: '600px' }}>
-                  <motion.div
-                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-pink-500/30 bg-slate-900/40 h-full flex flex-col justify-center`}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="text-center mb-8">
-                      <div className={`inline-flex p-4 rounded-full bg-gradient-to-r ${category.borderGradient} mb-4`}>
-                        <div className="text-white">
-                          {category.icon}
-                        </div>
+                <div
+                  key={category.title}
+                  id={`sticky-skill-${index + 1}`}
+                  className="sticky-skill w-full mx-auto max-w-4xl sticky top-20"
+                >
+                  <div className="box-border flex items-center justify-center rounded-2xl shadow-[0_0_30px_0_rgba(236,72,153,0.3)] transition-all duration-500">
+                    <motion.div
+                      className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-pink-500/30 bg-slate-900/40 w-full`}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {/* Decorative dots */}
+                      <div className="flex flex-row space-x-2 absolute top-4 left-4">
+                        <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                        <div className="h-3 w-3 rounded-full bg-orange-400"></div>
+                        <div className="h-3 w-3 rounded-full bg-green-400"></div>
                       </div>
-                      <h4 className="text-2xl font-bold text-white mb-2">{category.title}</h4>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skill}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: skillIndex * 0.1 }}
-                          className="flex items-center space-x-3 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300"
-                        >
-                          <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full"></div>
-                          <span className="text-gray-300 text-sm font-medium">{skill}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+                      <div className="text-center mb-8">
+                        <div className={`inline-flex p-4 rounded-full bg-gradient-to-r ${category.borderGradient} mb-4`}>
+                          <div className="text-white">
+                            {category.icon}
+                          </div>
+                        </div>
+                        <h4 className="text-2xl font-bold text-white mb-2">{category.title}</h4>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {category.skills.map((skill, skillIndex) => (
+                          <motion.div
+                            key={skill}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: skillIndex * 0.1 }}
+                            className="flex items-center space-x-3 p-3 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300"
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full"></div>
+                            <span className="text-gray-300 text-sm font-medium">{skill}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               ))}
-            </motion.div>
-          </div>
-
-          <div className="flex justify-center items-center mt-8 space-x-4">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
-            >
-              <ChevronUp className="w-5 h-5" />
-            </button>
-
-            <div className="flex flex-col space-y-2">
-              {skillCategories.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-gradient-to-r from-pink-400 to-rose-400'
-                      : 'bg-slate-600 hover:bg-slate-500'
-                  }`}
-                />
-              ))}
             </div>
-
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
-            >
-              <ChevronDown className="w-5 h-5" />
-            </button>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-8"
-        >
-          <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
-            <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
-            Use mouse wheel or navigation buttons to explore specialized skills
-            <span className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></span>
-          </p>
         </motion.div>
       </div>
 
@@ -405,6 +344,10 @@ const Skills = () => {
           }
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
+          }
+          .sticky-skill {
+            position: -webkit-sticky;
+            position: sticky;
           }
         `
       }} />
