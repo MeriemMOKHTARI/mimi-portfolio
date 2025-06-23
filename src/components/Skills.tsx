@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { 
   Github, 
   Gitlab, 
-  Docker, 
+  Container, 
   Figma, 
   Chrome,
   Database,
@@ -41,7 +41,7 @@ const Skills = () => {
     { name: "HTML5", icon: <Globe className="w-8 h-8" />, color: "from-orange-400 to-red-500" },
     { name: "Tailwind CSS", icon: <Layers className="w-8 h-8" />, color: "from-cyan-400 to-blue-500" },
     { name: "MongoDB", icon: <Database className="w-8 h-8" />, color: "from-green-400 to-green-600" },
-    { name: "Docker", icon: <Docker className="w-8 h-8" />, color: "from-blue-400 to-cyan-500" },
+    { name: "Docker", icon: <Container className="w-8 h-8" />, color: "from-blue-400 to-cyan-500" },
     { name: "GitHub", icon: <Github className="w-8 h-8" />, color: "from-gray-600 to-gray-800" },
     { name: "GitLab", icon: <Gitlab className="w-8 h-8" />, color: "from-orange-500 to-red-600" },
     { name: "Figma", icon: <Figma className="w-8 h-8" />, color: "from-purple-400 to-pink-500" },
@@ -176,7 +176,6 @@ const Skills = () => {
           <div
             ref={scrollRef}
             className="flex gap-8 overflow-x-auto py-8 cursor-grab active:cursor-grabbing scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {duplicatedSkills.map((skill, index) => (
               <motion.div
@@ -238,15 +237,17 @@ const Skills = () => {
         </motion.div>
       </div>
 
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+        `
+      }} />
     </section>
   );
 };
