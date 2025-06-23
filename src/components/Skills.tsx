@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from "react";
@@ -20,7 +19,9 @@ import {
   Shield,
   Brain,
   Cpu,
-  Network
+  Network,
+  ChevronUp,
+  ChevronDown
 } from "lucide-react";
 
 const Skills = () => {
@@ -55,7 +56,6 @@ const Skills = () => {
     { name: "Redux", icon: <Layers className="w-8 h-8" /> },
   ];
 
-  // Specialized skill categories for carousel
   const skillCategories = [
     {
       title: "Cybersecurity",
@@ -123,7 +123,6 @@ const Skills = () => {
     }
   ];
 
-  // Duplicate skills for seamless loop
   const duplicatedSkills = [...skills, ...skills];
 
   const startAutoScroll = () => {
@@ -163,7 +162,6 @@ const Skills = () => {
     setTimeout(() => setIsAutoScrolling(true), 3000);
   };
 
-  // Carousel navigation
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % skillCategories.length);
   };
@@ -202,7 +200,6 @@ const Skills = () => {
     };
   }, []);
 
-  // Handle wheel scroll for carousel
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       const carouselSection = document.getElementById('skills-carousel');
@@ -242,7 +239,6 @@ const Skills = () => {
           <p className="text-gray-300 text-lg">Technologies I work with</p>
         </motion.div>
 
-        {/* Navigation Controls for basic skills */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -263,7 +259,6 @@ const Skills = () => {
           </button>
         </motion.div>
 
-        {/* Basic Skills Horizontal Scroll */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -302,7 +297,6 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Specialized Skills Carousel */}
         <motion.div
           id="skills-carousel"
           initial={{ opacity: 0, y: 50 }}
@@ -317,16 +311,15 @@ const Skills = () => {
             <p className="text-gray-400">Scroll to explore different domains</p>
           </div>
 
-          {/* Carousel Container */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden max-w-4xl mx-auto" style={{ height: '600px' }}>
             <motion.div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              className="flex flex-col transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateY(-${currentSlide * 100}%)` }}
             >
               {skillCategories.map((category, index) => (
-                <div key={category.title} className="w-full flex-shrink-0 px-4">
+                <div key={category.title} className="w-full flex-shrink-0 px-4" style={{ height: '600px' }}>
                   <motion.div
-                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-pink-500/30 bg-slate-900/40`}
+                    className={`relative p-8 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-pink-500/30 bg-slate-900/40 h-full flex flex-col justify-center`}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -359,16 +352,15 @@ const Skills = () => {
             </motion.div>
           </div>
 
-          {/* Carousel Navigation */}
           <div className="flex justify-center items-center mt-8 space-x-4">
             <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronUp className="w-5 h-5" />
             </button>
 
-            <div className="flex space-x-2">
+            <div className="flex flex-col space-y-2">
               {skillCategories.map((_, index) => (
                 <button
                   key={index}
@@ -386,12 +378,11 @@ const Skills = () => {
               onClick={nextSlide}
               className="p-2 rounded-full bg-slate-800/50 border border-pink-500/30 hover:border-pink-400 text-pink-400 hover:text-pink-300 transition-all duration-300"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronDown className="w-5 h-5" />
             </button>
           </div>
         </motion.div>
 
-        {/* Interactive Controls Hint */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
