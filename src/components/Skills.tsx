@@ -265,7 +265,7 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Specialized Expertise - Fixed Container with Internal Scroll */}
+        {/* Specialized Expertise - Stacked Cards */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -273,7 +273,7 @@ const Skills = () => {
           className="relative my-24"
         >
           {/* Fixed Header */}
-          <div className="mb-8">
+          <div className="sticky top-10 z-50">
             <div className="w-20 h-20 bg-pink-500/10 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl opacity-30"></div>
             <div className="flex items-center justify-start relative">
               <span className="bg-slate-900 absolute left-0 w-fit text-white px-5 py-3 text-xl rounded-md border border-pink-500/30 z-10">
@@ -283,70 +283,75 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Fixed Container with Internal Scroll */}
-          <div className="relative h-[600px] bg-slate-900/40 backdrop-blur-sm border border-pink-500/30 rounded-2xl overflow-hidden">
-            {/* Decorative background grid */}
-            <div className="absolute inset-0 opacity-10">
-              <svg width="100%" height="100%" viewBox="0 0 1170 403" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M1170 57.3509H0V56.5132H1170V57.3509Z" fill="white" fillOpacity="0.3"></path>
-                <path fillRule="evenodd" clipRule="evenodd" d="M410.388 402.472L410.388 0.933594L411.226 0.933594L411.226 402.472L410.388 402.472Z" fill="white" fillOpacity="0.3"></path>
-                <path fillRule="evenodd" clipRule="evenodd" d="M841.791 402.472L841.791 0.933594L842.628 0.933594L842.628 402.472L841.791 402.472Z" fill="white" fillOpacity="0.3"></path>
-                <path fillRule="evenodd" clipRule="evenodd" d="M1170 143.631H0V142.793H1170V143.631Z" fill="white" fillOpacity="0.3"></path>
-                <path fillRule="evenodd" clipRule="evenodd" d="M324.108 402.472L324.108 0.933594L324.946 0.933594L324.946 402.472L324.108 402.472Z" fill="white" fillOpacity="0.3"></path>
-                <path fillRule="evenodd" clipRule="evenodd" d="M755.51 402.472L755.51 0.933594L756.348 0.933594L756.348 402.472L755.51 402.472Z" fill="white" fillOpacity="0.3"></path>
-              </svg>
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="h-full overflow-y-auto p-6 scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-pink-500/50 hover:scrollbar-thumb-pink-400/70">
-              <div className="space-y-6">
-                {skillCategories.map((category, index) => (
-                  <motion.div
-                    key={category.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/40 transition-all duration-300 hover:bg-slate-800/70 group"
-                  >
-                    {/* Decorative dots */}
-                    <div className="flex flex-row space-x-2 absolute top-4 left-4">
-                      <div className="h-3 w-3 rounded-full bg-red-400"></div>
-                      <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-                      <div className="h-3 w-3 rounded-full bg-green-400"></div>
-                    </div>
-
-                    {/* Header */}
-                    <div className="text-center mb-6 pt-4">
-                      <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${category.borderGradient} mb-3`}>
-                        <div className="text-white">
-                          {category.icon}
-                        </div>
+          {/* Stacked Cards Container */}
+          <div className="pt-24">
+            <div className="flex flex-col gap-6">
+              {skillCategories.map((category, index) => (
+                <div
+                  key={category.title}
+                  id={`sticky-card-${index + 1}`}
+                  className="sticky-card w-full mx-auto max-w-4xl sticky"
+                  style={{ top: `${80 + index * 20}px` }}
+                >
+                  <div className="box-border flex items-center justify-center rounded shadow-[0_0_30px_0_rgba(0,0,0,0.3)] transition-all duration-[0.5s]">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-pink-500/30 hover:border-pink-400/50 transition-all duration-300 hover:bg-slate-800/95 group w-full"
+                    >
+                      {/* Decorative background grid */}
+                      <div className="absolute inset-0 opacity-10 rounded-xl overflow-hidden">
+                        <svg width="100%" height="100%" viewBox="0 0 1170 403" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1170 57.3509H0V56.5132H1170V57.3509Z" fill="white" fillOpacity="0.3"></path>
+                          <path fillRule="evenodd" clipRule="evenodd" d="M410.388 402.472L410.388 0.933594L411.226 0.933594L411.226 402.472L410.388 402.472Z" fill="white" fillOpacity="0.3"></path>
+                          <path fillRule="evenodd" clipRule="evenodd" d="M841.791 402.472L841.791 0.933594L842.628 0.933594L842.628 402.472L841.791 402.472Z" fill="white" fillOpacity="0.3"></path>
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1170 143.631H0V142.793H1170V143.631Z" fill="white" fillOpacity="0.3"></path>
+                          <path fillRule="evenodd" clipRule="evenodd" d="M324.108 402.472L324.108 0.933594L324.946 0.933594L324.946 402.472L324.108 402.472Z" fill="white" fillOpacity="0.3"></path>
+                          <path fillRule="evenodd" clipRule="evenodd" d="M755.51 402.472L755.51 0.933594L756.348 0.933594L756.348 402.472L755.51 402.472Z" fill="white" fillOpacity="0.3"></path>
+                        </svg>
                       </div>
-                      <h4 className="text-xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
-                        {category.title}
-                      </h4>
-                    </div>
 
-                    {/* Skills Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {category.skills.map((skill, skillIndex) => (
-                        <motion.div
-                          key={skill}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: skillIndex * 0.05 }}
-                          className="flex items-center space-x-3 p-3 rounded-lg bg-slate-700/30 backdrop-blur-sm border border-pink-500/10 hover:border-pink-400/30 transition-all duration-300 hover:bg-slate-700/50"
-                        >
-                          <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-300 text-sm font-medium group-hover:text-gray-200 transition-colors duration-300">
-                            {skill}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                      {/* Decorative dots */}
+                      <div className="flex flex-row space-x-2 absolute top-4 left-4 z-10">
+                        <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                        <div className="h-3 w-3 rounded-full bg-orange-400"></div>
+                        <div className="h-3 w-3 rounded-full bg-green-400"></div>
+                      </div>
+
+                      {/* Header */}
+                      <div className="text-center mb-6 pt-4 relative z-10">
+                        <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${category.borderGradient} mb-3`}>
+                          <div className="text-white">
+                            {category.icon}
+                          </div>
+                        </div>
+                        <h4 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
+                          {category.title}
+                        </h4>
+                      </div>
+
+                      {/* Skills Grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
+                        {category.skills.map((skill, skillIndex) => (
+                          <motion.div
+                            key={skill}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: skillIndex * 0.05 }}
+                            className="flex items-center space-x-3 p-4 rounded-lg bg-slate-700/40 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/40 transition-all duration-300 hover:bg-slate-700/60"
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-gray-300 text-sm font-medium group-hover:text-gray-200 transition-colors duration-300">
+                              {skill}
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -361,22 +366,11 @@ const Skills = () => {
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
           }
-          .scrollbar-thin {
-            scrollbar-width: thin;
+          .sticky-card {
+            margin-bottom: 2rem;
           }
-          .scrollbar-track-slate-800::-webkit-scrollbar-track {
-            background: rgb(30 41 59);
-            border-radius: 0.375rem;
-          }
-          .scrollbar-thumb-pink-500\/50::-webkit-scrollbar-thumb {
-            background: rgba(236, 72, 153, 0.5);
-            border-radius: 0.375rem;
-          }
-          .scrollbar-thumb-pink-500\/50::-webkit-scrollbar-thumb:hover {
-            background: rgba(236, 72, 153, 0.7);
-          }
-          .scrollbar-thin::-webkit-scrollbar {
-            width: 8px;
+          .sticky-card:last-child {
+            margin-bottom: 0;
           }
         `
       }} />
