@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github, ArrowLeft, Smartphone, Globe } from "lucide-react";
@@ -20,7 +21,6 @@ import spectrum from '@/assets/images/spectrum_art.bmp';
 
 import iot from '@/assets/images/iot.jpg';
 
-
 interface Project {
   title: string;
   description: string;
@@ -40,7 +40,7 @@ interface ProjectCategoryProps {
 
 const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
@@ -141,7 +141,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
       }
     ]
   },
-  security: {
+  cybersecurity: {
     title: "Cybersecurity Projects",
     projects: [
       {
@@ -228,7 +228,6 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
   }
 };
 
-
   const categoryData = projectData[category];
   if (!categoryData) return null;
 
@@ -306,7 +305,7 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
           className="mb-8"
         >
           <button
@@ -320,9 +319,9 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
 
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
@@ -341,9 +340,9 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
           {categoryData.projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, delay: index * 0.05 }}
               className="group relative overflow-hidden rounded-xl bg-slate-800/50 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300"
               whileHover={{ scale: 1.02, y: -5 }}
             >
@@ -396,14 +395,6 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
                   <div className="flex space-x-4">
                     {renderGithubLinks(project)}
                   </div>
-                  {/* <motion.button
-                    className="flex items-center space-x-2 text-rose-400 hover:text-rose-300 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">Demo</span>
-                  </motion.button> */}
                 </div>
               </div>
             </motion.div>
