@@ -45,8 +45,7 @@ const Hero = ({ onNavigateToCategory }: HeroProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            "I'm Your Technical Partner: Computer Engineering, Mobile & Web Development, 
-            and UI/UX Design Expert, AI and Cyber Security Enthusiast..."
+            "I'm Your Technical Partner: Computer Engineering, Mobile & Web Development, Cyber Security & AI Enthusiast and UI/UX Design Expert ..."
           </motion.p>
 
           <motion.div

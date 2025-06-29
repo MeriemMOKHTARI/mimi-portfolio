@@ -128,7 +128,7 @@ const Projects = () => {
           image: "src/assets/images/reverse.jpg",
           gradient: "from-rose-600 to-pink-400",
           category: "Cybersecurity",
-         github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
+        //  github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
 
         }
   ];

@@ -31,6 +31,7 @@ const Skills = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout>();
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const skills = [
     { name: "React", icon: <Layers className="w-8 h-8" /> },
@@ -59,6 +60,7 @@ const Skills = () => {
       icon: <Shield className="w-12 h-12" />,
       gradient: "from-red-500/20 to-orange-500/20",
       borderGradient: "from-red-400 to-orange-400",
+      bgColor: "bg-red-900/20",
       skills: [
         "APT Analysis and Simulation",
         "Blue Team Tools and Techniques", 
@@ -68,7 +70,8 @@ const Skills = () => {
         "MITRE ATT&CK Framework",
         "ELK Stack",
         "YARA Rules",
-        "Malware Analysis and Detection"
+        "Malware Analysis and Detection",
+        "Forensics"
       ]
     },
     {
@@ -76,10 +79,11 @@ const Skills = () => {
       icon: <Brain className="w-12 h-12" />,
       gradient: "from-purple-500/20 to-pink-500/20",
       borderGradient: "from-purple-400 to-pink-400",
+      bgColor: "bg-purple-900/20",
       skills: [
         "Natural Language Processing (NLP)",
         "Speech-to-Text (Vosk)",
-        "Transformer Models (Tiny-BERT, SmoILM)",
+        "Transformer Models (Tiny-BERT, SmolLLM)",
         "Computer Vision (OpenCV)",
         "Sentiment Analysis",
         "Model Optimization (Edge AI)",
@@ -91,6 +95,7 @@ const Skills = () => {
       icon: <Cpu className="w-12 h-12" />,
       gradient: "from-blue-500/20 to-cyan-500/20",
       borderGradient: "from-blue-400 to-cyan-400",
+      bgColor: "bg-blue-900/20",
       skills: [
         "Raspberry Pi",
         "MQTT Protocol",
@@ -105,6 +110,7 @@ const Skills = () => {
       icon: <Network className="w-12 h-12" />,
       gradient: "from-green-500/20 to-teal-500/20",
       borderGradient: "from-green-400 to-teal-400",
+      bgColor: "bg-green-900/20",
       skills: [
         "Network Configuration",
         "Active Directory",
@@ -113,7 +119,6 @@ const Skills = () => {
         "Network Monitoring & Troubleshooting",
         "Software Development",
         "Reverse Engineering",
-        "Forensics",
         "Linux",
         "Windows"
       ]
@@ -185,6 +190,15 @@ const Skills = () => {
     };
   }, []);
 
+  // Handle scroll for stack effect
+  const handleStackScroll = (e) => {
+    const container = e.target;
+    const scrollTop = container.scrollTop;
+    const scrollHeight = container.scrollHeight - container.clientHeight;
+    const progress = scrollTop / scrollHeight;
+    setScrollProgress(progress);
+  };
+
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background Effects */}
@@ -207,7 +221,7 @@ const Skills = () => {
           <p className="text-gray-300 text-lg">Technologies I work with</p>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -225,7 +239,7 @@ const Skills = () => {
           >
             <ChevronRight className="w-6 h-6 text-pink-400 group-hover:text-pink-300" />
           </button>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -265,7 +279,7 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Specialized Expertise - Stacked Cards with proper sticky effect */}
+        {/* Specialized Expertise - Stack Effect */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -273,7 +287,7 @@ const Skills = () => {
           className="relative my-24"
         >
           {/* Fixed Header */}
-          <div className="sticky top-10 z-50 mb-8">
+          <div className="mb-8">
             <div className="w-20 h-20 bg-pink-500/10 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl opacity-30"></div>
             <div className="flex items-center justify-start relative">
               <span className="bg-slate-900 absolute left-0 w-fit text-white px-5 py-3 text-xl rounded-md border border-pink-500/30 z-10">
@@ -283,74 +297,88 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Stacked Cards Container */}
-          <div className="relative">
-            {skillCategories.map((category, index) => (
-              <div
-                key={category.title}
-                className="sticky w-full max-w-4xl mx-auto mb-4"
-                style={{ 
-                  top: `${80 + index * 20}px`,
-                  zIndex: skillCategories.length - index
-                }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-sm border border-pink-500/30 hover:border-pink-400/50 transition-all duration-300 shadow-[0_0_30px_0_rgba(0,0,0,0.3)] group"
-                >
-                  {/* Decorative background grid */}
-                  <div className="absolute inset-0 opacity-10 rounded-xl overflow-hidden">
-                    <svg width="100%" height="100%" viewBox="0 0 1170 403" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" clipRule="evenodd" d="M1170 57.3509H0V56.5132H1170V57.3509Z" fill="white" fillOpacity="0.3"></path>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M410.388 402.472L410.388 0.933594L411.226 0.933594L411.226 402.472L410.388 402.472Z" fill="white" fillOpacity="0.3"></path>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M841.791 402.472L841.791 0.933594L842.628 0.933594L842.628 402.472L841.791 402.472Z" fill="white" fillOpacity="0.3"></path>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M1170 143.631H0V142.793H1170V143.631Z" fill="white" fillOpacity="0.3"></path>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M324.108 402.472L324.108 0.933594L324.946 0.933594L324.946 402.472L324.108 402.472Z" fill="white" fillOpacity="0.3"></path>
-                      <path fillRule="evenodd" clipRule="evenodd" d="M755.51 402.472L755.51 0.933594L756.348 0.933594L756.348 402.472L755.51 402.472Z" fill="white" fillOpacity="0.3"></path>
-                    </svg>
-                  </div>
+          {/* Stack Container */}
+          <div className="relative h-[600px] bg-slate-900/40 backdrop-blur-sm border border-pink-500/30 rounded-2xl overflow-hidden">
+            {/* Decorative background grid */}
+            <div className="absolute inset-0 opacity-10">
+              <svg width="100%" height="100%" viewBox="0 0 1170 403" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" clipRule="evenodd" d="M1170 57.3509H0V56.5132H1170V57.3509Z" fill="white" fillOpacity="0.3"></path>
+                <path fillRule="evenodd" clipRule="evenodd" d="M410.388 402.472L410.388 0.933594L411.226 0.933594L411.226 402.472L410.388 402.472Z" fill="white" fillOpacity="0.3"></path>
+                <path fillRule="evenodd" clipRule="evenodd" d="M841.791 402.472L841.791 0.933594L842.628 0.933594L842.628 402.472L841.791 402.472Z" fill="white" fillOpacity="0.3"></path>
+                <path fillRule="evenodd" clipRule="evenodd" d="M1170 143.631H0V142.793H1170V143.631Z" fill="white" fillOpacity="0.3"></path>
+                <path fillRule="evenodd" clipRule="evenodd" d="M324.108 402.472L324.108 0.933594L324.946 0.933594L324.946 402.472L324.108 402.472Z" fill="white" fillOpacity="0.3"></path>
+                <path fillRule="evenodd" clipRule="evenodd" d="M755.51 402.472L755.51 0.933594L756.348 0.933594L756.348 402.472L755.51 402.472Z" fill="white" fillOpacity="0.3"></path>
+              </svg>
+            </div>
 
-                  {/* Decorative dots */}
-                  <div className="flex flex-row space-x-2 absolute top-4 left-4 z-10">
-                    <div className="h-3 w-3 rounded-full bg-red-400"></div>
-                    <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-                    <div className="h-3 w-3 rounded-full bg-green-400"></div>
-                  </div>
+            {/* Scrollable Content with Stack Effect */}
+            <div 
+              className="h-full overflow-y-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-pink-500/50 hover:scrollbar-thumb-pink-400/70"
+              onScroll={handleStackScroll}
+            >
+              <div className="relative" style={{ height: `${skillCategories.length * 120}vh` }}>
+                {skillCategories.map((category, index) => {
+                  // Calcul plus précis pour l'effet de stack
+                  const cardProgress = (scrollProgress * (skillCategories.length + 1)) - index;
+                  const isActive = cardProgress >= 0 && cardProgress <= 1;
+                  const isVisible = cardProgress >= -0.1;
+                  
+                  // Position et scale basés sur le progrès
+                  const translateY = Math.max(0, (1 - cardProgress) * 50);
+                  const scale = isActive ? 1 : 0.95;
+                  const opacity = isVisible ? (cardProgress >= 1 ? Math.max(0, 2 - cardProgress) : 1) : 0;
+                  
+                  return (
+                    <div
+                      key={category.title}
+                      className="sticky top-6 mx-6"
+                      style={{
+                        zIndex: skillCategories.length - index,
+                        transform: `translateY(${translateY}px) scale(${scale})`,
+                        opacity: opacity,
+                        marginBottom: index === skillCategories.length - 1 ? '24px' : '0px'
+                      }}
+                    >
+                      <div className={`relative p-6 rounded-xl bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-sm border border-pink-500/30 hover:border-pink-400/50 transition-all duration-300 hover:bg-slate-800/100 group shadow-2xl ${category.bgColor}`}>
+                        {/* Decorative dots */}
+                        <div className="flex flex-row space-x-2 absolute top-4 left-4">
+                          <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                          <div className="h-3 w-3 rounded-full bg-orange-400"></div>
+                          <div className="h-3 w-3 rounded-full bg-green-400"></div>
+                        </div>
 
-                  {/* Header */}
-                  <div className="text-center mb-6 pt-4 relative z-10">
-                    <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${category.borderGradient} mb-3`}>
-                      <div className="text-white">
-                        {category.icon}
+                        {/* Header */}
+                        <div className="text-center mb-6 pt-4">
+                          <div className={`inline-flex p-3 rounded-full bg-gradient-to-r ${category.borderGradient} mb-3`}>
+                            <div className="text-white">
+                              {category.icon}
+                            </div>
+                          </div>
+                          <h4 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
+                            {category.title}
+                          </h4>
+                        </div>
+
+                        {/* Skills Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {category.skills.map((skill, skillIndex) => (
+                            <div
+                              key={skill}
+                              className="flex items-center space-x-3 p-4 rounded-lg bg-slate-700/60 backdrop-blur-sm border border-pink-500/15 hover:border-pink-400/40 transition-all duration-300 hover:bg-slate-700/80"
+                            >
+                              <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex-shrink-0"></div>
+                              <span className="text-gray-200 text-sm font-medium group-hover:text-gray-100 transition-colors duration-300">
+                                {skill}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <h4 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
-                      {category.title}
-                    </h4>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: skillIndex * 0.05 }}
-                        className="flex items-center space-x-3 p-4 rounded-lg bg-slate-700/40 backdrop-blur-sm border border-pink-500/20 hover:border-pink-400/40 transition-all duration-300 hover:bg-slate-700/60"
-                      >
-                        <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm font-medium group-hover:text-gray-200 transition-colors duration-300">
-                          {skill}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
+                  );
+                })}
               </div>
-            ))}
+            </div>
           </div>
         </motion.div>
       </div>
@@ -363,6 +391,23 @@ const Skills = () => {
           }
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
+          }
+          .scrollbar-thin {
+            scrollbar-width: thin;
+          }
+          .scrollbar-track-slate-800::-webkit-scrollbar-track {
+            background: rgb(30 41 59);
+            border-radius: 0.375rem;
+          }
+          .scrollbar-thumb-pink-500\/50::-webkit-scrollbar-thumb {
+            background: rgba(236, 72, 153, 0.5);
+            border-radius: 0.375rem;
+          }
+          .scrollbar-thumb-pink-500\/50::-webkit-scrollbar-thumb:hover {
+            background: rgba(236, 72, 153, 0.7);
+          }
+          .scrollbar-thin::-webkit-scrollbar {
+            width: 8px;
           }
         `
       }} />

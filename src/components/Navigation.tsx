@@ -12,7 +12,9 @@ const Navigation = () => {
       setScrolled(scrollPosition > 100);
 
       // Determine current section
-      const sections = ["home", "about", "projects", "skills", "certificates", "contact"];
+      const sections = ["home", "about", "projects", "skills",
+        //  "certificates",
+          "contact"];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -33,8 +35,8 @@ const Navigation = () => {
     { id: "about", label: "Portfolio" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
-    { id: "certificates", label: "Certificates" },
-    { id: "contact", label: "CV" },
+    // { id: "certificates", label: "Certificates" },
+    { id: "contact", label: "contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {

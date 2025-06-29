@@ -25,7 +25,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "meriem-mokhtari",
+      value: "Meriem Mokhtari",
       link: "https://www.linkedin.com/in/meriem-mokhtari-577808267/"
     },
     {

@@ -39,7 +39,7 @@ const About = () => {
           >
             <h3 className="text-3xl font-bold text-pink-400 mb-6">Who I am?</h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a final year Computer Systems Engineering student at the Higher School of Computer Science 
+              I'm a final year Computer Systems Engineering student at the Higher School of Computer Science, 
               and a Mobile & Web Developer at DATALOCK company, with a strong passion for cybersecurity 
               experienced in digital forensics, blue teaming, and detection engineering as well as a keen 
               interest in networks, AI, and UI/UX design.
@@ -51,27 +51,27 @@ const About = () => {
             </p>
             
             <div className="space-y-4 mt-8">
-              <h4 className="text-xl font-bold text-white">My Experience</h4>
+              <h4 className="text-3xl font-bold text-white">My Experience</h4>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-pink-400 rounded-full mt-2"></div>
                   <div>
-                    <span className="text-pink-300 font-semibold">Mobile and Web Developer</span>
-                    <span className="text-gray-400"> at DATALOCK (Oct 2024 - Present)</span>
+                    <span className="text-xl text-pink-300 font-bold">Mobile and Web Developer</span>
+                    <span className="text-lg text-gray-400"> at DATALOCK company (Oct 2024 - Present)</span>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-pink-400 rounded-full mt-2"></div>
                   <div>
-                    <span className="text-pink-300 font-semibold">Cybersecurity Detection Engineering Intern</span>
-                    <span className="text-gray-400"> at Realistic Security (Sep - Oct 2024)</span>
+                    <span className="text-xl text-pink-300 font-bold">Cybersecurity Detection Engineering Intern</span>
+                    <span className="text-lg text-gray-400"> at Realistic Security company (Sep - Oct 2024)</span>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-pink-400 rounded-full mt-2"></div>
                   <div>
-                    <span className="text-pink-300 font-semibold">IT Network and Systems Intern</span>
-                    <span className="text-gray-400"> at Sonelgaz Company (Aug - Sep 2024)</span>
+                    <span className="text-xl text-pink-300 font-bold">IT Network and Systems Intern</span>
+                    <span className="text-lg text-gray-400"> at Sonelgaz Company (Aug - Sep 2024)</span>
                   </div>
                 </div>
               </div>
