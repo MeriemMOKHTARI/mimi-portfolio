@@ -1,6 +1,8 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Menu } from "lucide-react";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,9 +14,7 @@ const Navigation = () => {
       setScrolled(scrollPosition > 100);
 
       // Determine current section
-      const sections = ["home", "about", "projects", "skills",
-        //  "certificates",
-          "contact"];
+      const sections = ["home", "about", "projects", "skills", "contact"];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -35,8 +35,7 @@ const Navigation = () => {
     { id: "about", label: "Portfolio" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
-    // { id: "certificates", label: "Certificates" },
-    { id: "contact", label: "contact" },
+    { id: "contact", label: "Contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -80,16 +79,11 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - SidebarTrigger */}
           <div className="md:hidden">
-            <motion.button
-              className="text-gray-300 hover:text-pink-400 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </motion.button>
+            <SidebarTrigger className="text-gray-300 hover:text-pink-400 transition-colors duration-300 p-2">
+              <Menu className="w-6 h-6" />
+            </SidebarTrigger>
           </div>
         </div>
       </div>
