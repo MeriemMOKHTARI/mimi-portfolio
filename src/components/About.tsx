@@ -74,15 +74,22 @@ const About = () => {
             viewport={{ once: true }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative">
-              <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-pink-400/30 shadow-2xl shadow-pink-400/20">
+            <div className="relative text-center">
+              <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-pink-400/30 shadow-2xl shadow-pink-400/20 mb-6">
                 <img
                   src={me}
                   alt="Mokhtari Meriem"
                   className="w-full h-full object-cover"
                 />
               </div>
-          
+              <div className="space-y-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  Meriem Mokhtari
+                </h3>
+                <p className="text-lg sm:text-xl text-pink-400 font-medium">
+                  Computer Systems Engineer
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
