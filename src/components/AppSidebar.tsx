@@ -1,5 +1,5 @@
 
-import { Home, User, FolderOpen, Code, Mail, Menu } from "lucide-react";
+import { Home, User, FolderOpen, Code, Mail } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -32,7 +32,7 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar side="right" className="border-l border-pink-400/20">
+    <Sidebar side="right" className="border-l border-pink-400/20 lg:hidden">
       <SidebarContent className="bg-slate-900/95 backdrop-blur-md">
         <SidebarGroup>
           <SidebarGroupLabel className="text-pink-400 font-bold text-lg px-4 py-6">

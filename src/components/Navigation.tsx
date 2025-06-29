@@ -62,12 +62,13 @@ const Navigation = () => {
             MOKHTARI MERIEM
           </motion.div>
           
-          <div className="hidden md:flex space-x-6 lg:space-x-8">
+          {/* Desktop Navigation - Always visible on larger screens */}
+          <div className="hidden lg:flex space-x-8">
             {navItems.map((item) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-300 relative px-3 lg:px-4 py-2 ${
+                className={`text-sm font-medium transition-colors duration-300 relative px-4 py-2 ${
                   currentSection === item.id 
                     ? "text-pink-400 bg-pink-400/10 rounded-lg" 
                     : "text-gray-300 hover:text-pink-400"
@@ -79,7 +80,28 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile menu button - SidebarTrigger */}
+          {/* Medium screens - Show some items + sidebar trigger */}
+          <div className="hidden md:flex lg:hidden items-center space-x-4">
+            {navItems.slice(0, 3).map((item) => (
+              <motion.button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`text-sm font-medium transition-colors duration-300 relative px-3 py-2 ${
+                  currentSection === item.id 
+                    ? "text-pink-400 bg-pink-400/10 rounded-lg" 
+                    : "text-gray-300 hover:text-pink-400"
+                }`}
+                whileHover={{ scale: 1.05 }}
+              >
+                {item.label}
+              </motion.button>
+            ))}
+            <SidebarTrigger className="text-gray-300 hover:text-pink-400 transition-colors duration-300 p-2">
+              <Menu className="w-6 h-6" />
+            </SidebarTrigger>
+          </div>
+
+          {/* Mobile - Only sidebar trigger */}
           <div className="md:hidden">
             <SidebarTrigger className="text-gray-300 hover:text-pink-400 transition-colors duration-300 p-2">
               <Menu className="w-6 h-6" />

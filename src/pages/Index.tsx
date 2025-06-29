@@ -28,7 +28,12 @@ const Index = () => {
       <div className="relative min-h-screen bg-gray-900 overflow-x-hidden w-full">
         <AnimatedBackground />
         <Navigation />
-        <AppSidebar />
+        
+        {/* Sidebar only for mobile and tablet when needed */}
+        <div className="lg:hidden">
+          <AppSidebar />
+        </div>
+        
         <main className="relative z-10 w-full">
           {currentView === 'home' ? (
             <>
