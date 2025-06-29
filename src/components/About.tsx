@@ -59,15 +59,12 @@ const About = () => {
                   <span className="text-xl text-pink-300 font-bold">Cybersecurity Detection Engineering Intern</span>
                   <span className="text-lg text-gray-400"> at Realistic Security company (Sep - Oct 2024)</span>
                 </div>
-                  <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
-                    <span className="text-xl text-pink-300 font-bold">IT Network and Systems Intern</span>
-                    <span className="text-lg text-gray-400"> at Sonelgaz Company (Aug - Sep 2024)</span>
-                  </div>
-
+                <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
+                  <span className="text-xl text-pink-300 font-bold">IT Network and Systems Intern</span>
+                  <span className="text-lg text-gray-400"> at Sonelgaz Company (Aug - Sep 2024)</span>
+                </div>
               </div>
             </div>
-
-
           </motion.div>
 
           <motion.div

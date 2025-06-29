@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Projects from "../components/Projects";
@@ -17,11 +17,26 @@ const Index = () => {
 
   const handleNavigateToCategory = (category: string) => {
     setCurrentView(category);
+    // Scroll to top immediately when switching to category view
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const handleBackToHome = () => {
     setCurrentView('home');
+    // Scroll to top immediately when returning to home
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
+
+  // Effect to ensure immediate display of category content
+  useEffect(() => {
+    if (currentView !== 'home') {
+      // Force re-render and immediate display
+      const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [currentView]);
 
   return (
     <SidebarProvider>
@@ -30,21 +45,35 @@ const Index = () => {
         <Navigation />
         
         {/* Sidebar only for mobile and tablet when needed */}
-        <div className="lg:hidden">
-          <AppSidebar />
+        <div className="md:hidden">
+          <AppSidebar onNavigateToCategory={handleNavigateToCategory} />
         </div>
         
         <main className="relative z-10 w-full">
           {currentView === 'home' ? (
-            <>
+            <motion.div
+              key="home"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
               <Hero onNavigateToCategory={handleNavigateToCategory} />
               <About />
               <Projects />
               <Skills />
               <Contact />
-            </>
+            </motion.div>
           ) : (
-            <ProjectCategory category={currentView} onBack={handleBackToHome} />
+            <motion.div
+              key={currentView}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ProjectCategory category={currentView} onBack={handleBackToHome} />
+            </motion.div>
           )}
         </main>
       </div>
