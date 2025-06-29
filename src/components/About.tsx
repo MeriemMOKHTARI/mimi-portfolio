@@ -35,14 +35,14 @@ const About = () => {
                 Who I am?
               </h3>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                I'm a final year Computer Systems Engineering student at the Higher School of Computer Science, 
-                and a Mobile & Web Developer at DATALOCK company, with a strong passion for cybersecurity 
-                experienced in digital forensics, blue teaming, and detection engineering as well as a keen 
+                I'm a final year Computer Systems Engineering student at the Higher School of Computer Science,
+                and a Mobile & Web Developer at DATALOCK company, with a strong passion for cybersecurity
+                experienced in digital forensics, blue teaming, and detection engineering as well as a keen
                 interest in networks, AI, and UI/UX design.
               </p>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                I've completed several academic projects, freelance work, and internships. My diverse experience 
-                and passion for technology make me a valuable asset for your next project let's collaborate to 
+                I've completed several academic projects, freelance work, and internships. My diverse experience
+                and passion for technology make me a valuable asset for your next project let's collaborate to
                 turn your ideas into exceptional digital solutions.
               </p>
             </div>
@@ -51,38 +51,22 @@ const About = () => {
               <h4 className="text-xl sm:text-2xl font-bold text-pink-400">My Experience</h4>
               <div className="space-y-4">
                 <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
-                  <h5 className="font-semibold text-pink-400 text-base sm:text-lg">Mobile and Web Developer</h5>
-                  <p className="text-gray-400 text-sm sm:text-base">at DATALOCK company (Oct 2024 - Present)</p>
+                  <span className="text-xl text-pink-300 font-bold">Mobile and Web Developer</span>
+                  <span className="text-lg text-gray-400"> at DATALOCK company (Oct 2024 - Present)</span>
                 </div>
                 <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
-                  <h5 className="font-semibold text-pink-400 text-base sm:text-lg">Cybersecurity Intern</h5>
-                  <p className="text-gray-400 text-sm sm:text-base">Digital Forensics & Blue Teaming (2023-2024)</p>
+                  <span className="text-xl text-pink-300 font-bold">Cybersecurity Detection Engineering Intern</span>
+                  <span className="text-lg text-gray-400"> at Realistic Security company (Sep - Oct 2024)</span>
                 </div>
+                  <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
+                    <span className="text-xl text-pink-300 font-bold">IT Network and Systems Intern</span>
+                    <span className="text-lg text-gray-400"> at Sonelgaz Company (Aug - Sep 2024)</span>
+                  </div>
+
               </div>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                I'm always excited to take on new challenges and collaborate on innovative projects. Whether you need 
-                mobile app development, web solutions, cybersecurity consulting, or AI implementation, I'm here to help 
-                bring your vision to life.
-              </p>
-              
-              <div className="space-y-3 sm:space-y-4 text-gray-300">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                  <span className="text-sm sm:text-base">Available for freelance projects</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                  <span className="text-sm sm:text-base">Open to full-time opportunities</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                  <span className="text-sm sm:text-base">Consulting and technical expertise</span>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
 
           <motion.div
@@ -94,9 +78,9 @@ const About = () => {
           >
             <div className="relative">
               <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-pink-400/30 shadow-2xl shadow-pink-400/20">
-                <img 
-                  src="/lovable-uploads/me.jpg" 
-                  alt="Mokhtari Meriem" 
+                <img
+                  src="/lovable-uploads/me.jpg"
+                  alt="Mokhtari Meriem"
                   className="w-full h-full object-cover"
                 />
               </div>
