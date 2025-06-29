@@ -30,8 +30,8 @@ const Index = () => {
         <Navigation />
         
         {/* Sidebar only for mobile and tablet when needed */}
-        <div className="lg:hidden">
-          <AppSidebar />
+        <div className="md:hidden">
+          <AppSidebar onNavigateToCategory={handleNavigateToCategory} />
         </div>
         
         <main className="relative z-10 w-full">
