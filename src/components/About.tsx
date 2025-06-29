@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import me from '@/assets/images/me.jpg';
 
 const About = () => {
   return (
@@ -79,20 +80,12 @@ const About = () => {
             <div className="relative">
               <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-pink-400/30 shadow-2xl shadow-pink-400/20">
                 <img
-                  src="/lovable-uploads/me.jpg"
+                  src={me}
                   alt="Mokhtari Meriem"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-pink-500 to-purple-600 p-4 sm:p-6 rounded-xl shadow-lg">
-                <div className="flex items-center gap-2 text-white">
-                  <MapPin className="w-5 h-5" />
-                  <div>
-                    <p className="font-bold text-sm sm:text-base">Based in Algeria</p>
-                    <p className="text-xs sm:text-sm opacity-90">Available for remote work worldwide</p>
-                  </div>
-                </div>
-              </div>
+          
             </div>
           </motion.div>
         </div>
