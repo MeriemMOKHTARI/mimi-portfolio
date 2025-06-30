@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { inView, motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import me from '@/assets/images/me.jpg';
 
@@ -67,28 +67,26 @@ const About = () => {
             </div>
           </motion.div>
 
-          <motion.div
+       <motion.div
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="flex justify-center lg:justify-end"
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="relative flex justify-center"
           >
-            <div className="relative text-center">
-              <div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-pink-400/30 shadow-2xl shadow-pink-400/20 mb-6">
-                <img
-                  src={me}
-                  alt="Mokhtari Meriem"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Meriem Mokhtari
-                </h3>
-                <p className="text-lg sm:text-xl text-pink-400 font-medium">
-                  Computer Systems Engineer
-                </p>
+            <div className="relative p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl backdrop-blur-sm border border-pink-400/30">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-pink-400/30 to-pink-600/30 rounded-full blur-xl"></div>
+              <div className="relative">
+                <div className="w-64 h-80 bg-gradient-to-br from-pink-400/20 to-slate-700/50 rounded-xl flex items-center justify-center border border-pink-400/30">
+                  <img 
+                    src={me}
+                    alt="Meriem Mokhtari" 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+                <div className="text-center mt-4">
+                  <h3 className="text-xl font-bold text-white">Meriem Mokhtari</h3>
+                  <p className="text-pink-400">Computer Systems Engineer</p>
+                </div>
               </div>
             </div>
           </motion.div>
