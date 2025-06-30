@@ -10,7 +10,7 @@ const Hero = ({ onNavigateToCategory }: HeroProps) => {
   const roles = [
     { icon: Smartphone, text: "Mobile Developer", category: "mobile" },
     { icon: Code, text: "Web Developer", category: "web" },
-    { icon: Shield, text: "Cybersecurity", category: "security" },
+    { icon: Shield, text: "Cybersecurity", category: "cybersecurity" },
     { icon: Brain, text: "AI Enthusiast", category: "ai" },
   ];
 
