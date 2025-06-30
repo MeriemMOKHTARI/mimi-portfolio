@@ -3,23 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github, ArrowLeft, Smartphone, Globe } from "lucide-react";
 
-import ibtikar from '@/assets/images/ibtikar.jpg';
-import inovpost from '@/assets/images/inovpost.jpg';
-import bookini from '@/assets/images/bookini.jpg';
-import stockkeep from '@/assets/images/stockkeep.jpg';
-import test from '@/assets/images/test.jpg';
-import needy from '@/assets/images/needy.jpg';
 
-import map from '@/assets/images/Map.png';
-import inovpostWeb from '@/assets/images/inovpost-web.jpg';
-import storekeeper from '@/assets/images/Storekeeper-Receipt 1.png';
-
-import velo from '@/assets/images/velo.png';
-import qrcode from '@/assets/images/qrcode.jpg';
-import reverse from '@/assets/images/reverse.jpg';
-import spectrum from '@/assets/images/spectrum_art.bmp';
-
-import iot from '@/assets/images/iot.jpg';
 
 interface Project {
   title: string;
@@ -46,186 +30,187 @@ const ProjectCategory = ({ category, onBack }: ProjectCategoryProps) => {
 
   const projectData: Record<string, { title: string; projects: Project[] }> = {
   mobile: {
-    title: "Mobile App Projects",
-    projects: [
-      {
-        title: "AI-Traffic Management (SafeRoad)",
-        description: "AI-driven traffic optimization system with real-time analytics dashboard and mobile app for accident alerts",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: ibtikar,
-        gradient: "from-pink-400 to-rose-400",
-        category: "AI/ML & Full-Stack",
-        github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
-      },
-      {
-        title: "AI-Postal Service Analytics",
-        description: "AI-powered dashboard for sentiment analysis with mobile app and chat support. Won Inov 2nd Place 2024",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: inovpost,
-        gradient: "from-rose-400 to-pink-600",
-        category: "AI/ML & Full-Stack",
-        award: "🏆 Inov 2nd Place 2024",
-        github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-App"
-      },
-      {
-        title: "AI-Book App",
-        description: "Flutter mobile app with NLP-driven recommendations and voice-enabled AI assistant. Won 3rd Place MobAI Hackathon",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: bookini,
-        gradient: "from-pink-600 to-rose-400",
-        category: "Mobile & AI",
-        award: "🏆 MobAI 3rd Place MobAI 2025",
-        github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
-      },
-      {
-        title: "StockKeep Inventory App",
-        description: "Automated stock tracking with orders, deliveries, expiry alerts and role-based dashboards",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: stockkeep,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Full-Stack & Mobile",
-        subtitle: "ESI Sidi Bel Abbès Academic Project",
-        github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
-      },
-      {
-        title: "Chrily - Multi-Vendor E-Commerce",
-        description: "Multi-vendor marketplace connecting sellers and buyers with store management and order processing",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: test,
-        gradient: "from-pink-500 to-rose-500",
-        category: "Mobile Development",
-        github: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App"
-      },
-      {
-        title: "Needy - Geolocation-Based App",
-        description: "Connecting users with nearby assistance services using real-time geolocation and interactive maps",
-        tech: ["Flutter", "Provider State Management", "Firebase"],
-        image: needy,
-        gradient: "from-rose-500 to-pink-500",
-        category: "Mobile Development",
-        github: "https://github.com/MeriemMOKHTARI/Needy"
-      }
-    ]
-  },
-  web: {
-    title: "Web Development Projects",
-    projects: [
-      {
-        title: "AI-Powered Traffic Management (SafeRoad)",
-        description: "Web dashboard for traffic optimization with dynamic speed limits and smart traffic lights management",
-        tech: ["React", "JSX", "Tailwind"],
-        image: map,
-        gradient: "from-pink-400 to-rose-400",
-        category: "AI/ML & Full-Stack",
-        github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
-      },
-      {
-        title: "AI-powered Postal Service Analytics",
-        description: "Web dashboard for sentiment analysis of social media and QR feedback with data visualization",
-        tech: ["React", "JSX", "Tailwind"],
-        image: inovpostWeb,
-        gradient: "from-rose-400 to-pink-600",
-        category: "AI/ML & Full-Stack",
-        award: "🏆 Inov 2nd Place 2024",
-        github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
-      },
-      {
-        title: "StockKeep Inventory Web",
-        description: "Web-based inventory management system with automated tracking and analytics dashboard",
-        tech: ["React", "JSX", "Tailwind"],
-        image: storekeeper,
-        gradient: "from-pink-600 to-rose-400",
-        category: "Full-Stack & Mobile",
-        subtitle: "ESI Sidi Bel Abbès Academic Project",
-        github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
-      }
-    ]
-  },
-  cybersecurity: {
-    title: "Cybersecurity Projects",
-    projects: [
-      {
-        title: "APT Detection & Cybersecurity Analysis",
-        description: "Research on APT groups with MITRE ATT&CK-based detection rules and ELK stack deployment for threat monitoring",
-        tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules","Blue Team"],
-        image: velo,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Cybersecurity",
-        github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
-      },
-      {
-        title: "Key2QR - Forensics CTF Challenge",
-        description: "Created a forensics CTF challenge, where participants repair a corrupted GIF to extract a key and the first part of a flag, then use the key to decrypt a locked QR code revealing the second part. Involves fixing the GIF header, extracting frames, and scanning the QR code with tools like hexedit, ffmpeg, eog, gpg, and zbarimg",
-        tech: ["Forensics","hexedit", "ffmpeg"," eog", "gpg", "zbarimg","GIF Analysis","QR Code Decryption","CTF"],
-        image: qrcode,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Cybersecurity",
-        award: "🏆 CTF author",
-        github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/Key2QR"
-      },
-      {
-        title: "Reverse Shells & Backdoors Analysis",
-        description: "Research and analysis on reverse shells and backdoors, including a practical demonstration.",
-        tech: ["Backdoors", "Reverse Shells", "NC",,"MSFVenom","Blue Team"],
-        image: reverse,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Cybersecurity"
-      },
-      {
-        title: "ColorPNG - Forensics CTF Challenge",
-        description: "Created a forensics CTF challenge,where a hidden flag is embedded in the red channel of a PNG image using steganography. The flag is encoded as ASCII values in consecutive pixels, terminated by a red value of 0. Provided a Python script using the PIL library to extract the flag by analyzing pixel data.",
-        tech: ["Forensics","Steganography","Image Analysis","Python","CTF","Pixel Manipulation"],
-        image: spectrum,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Cybersecurity",
-        award: "🏆 CTF author",
-        github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/ColorPNG"
-      }
-    ]
-  },
-  ai: {
-    title: "AI & Machine Learning Projects",
-    projects: [
-      {
-        title: "AI-Automated IoT Voice Assistant",
-        description: "Offline voice assistant using Vosk and Tiny-BERT with MQTT-based IoT control and SVM speaker recognition",
-        tech: ["AI/ML", "IoT", "Voice Recognition","LLM"],
-        image: iot,
-        gradient: "from-rose-400 to-pink-600",
-        category: "AI/ML & IoT",
-        github: "https://github.com/MeriemMOKHTARI/AI-IoT-Voice-Assistant-for-Smart-Living"
-      },
-      {
-        title: "AI-Powered Traffic Management (SafeRoad)",
-        description: "Computer vision-based traffic optimization with dynamic speed control and smart analytics",
-        tech: ["AI/ML", "Computer Vision", "IoT"],
-        image: map,
-        gradient: "from-pink-400 to-rose-400",
-        category: "AI/ML & Full-Stack",
-        github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
-      },
-      {
-        title: "AI-powered Postal Service Analytics",
-        description: "Sentiment analysis AI system for social media and customer feedback processing",
-        tech: ["AI/ML", "NLP", "Sentiment Analysis"],
-        image: inovpostWeb,
-        gradient: "from-pink-600 to-rose-400",
-        category: "AI/ML & Full-Stack",
-        award: "🏆 Inov 2nd Place 2024",
-        github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
-      },
-      {
-        title: "AI-Powered Book App",
-        description: "NLP-driven book recommendations with mood/interest-based search and fake face detection models",
-        tech: ["AI/ML", "NLP", "Computer Vision","chatboat"],
-        image: bookini,
-        gradient: "from-rose-600 to-pink-400",
-        category: "Mobile & AI",
-        award: "🏆 MobAI 3rd Place 2025",
-        github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
-      }
-    ]
-  }
+  title: "Mobile App Projects",
+  projects: [
+    {
+      title: "AI-Traffic Management (SafeRoad)",
+      description: "AI-driven traffic optimization system with real-time analytics dashboard and mobile app for accident alerts",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/ibtikar.jpg",
+      gradient: "from-pink-400 to-rose-400",
+      category: "AI/ML & Full-Stack",
+      github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-App"
+    },
+    {
+      title: "AI-Postal Service Analytics",
+      description: "AI-powered dashboard for sentiment analysis with mobile app and chat support. Won Inov 2nd Place 2024",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/inovpost.jpg",
+      gradient: "from-rose-400 to-pink-600",
+      category: "AI/ML & Full-Stack",
+      award: "🏆 Inov 2nd Place 2024",
+      github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-App"
+    },
+    {
+      title: "AI-Book App",
+      description: "Flutter mobile app with NLP-driven recommendations and voice-enabled AI assistant. Won 3rd Place MobAI Hackathon",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/bookini.jpg",
+      gradient: "from-pink-600 to-rose-400",
+      category: "Mobile & AI",
+      award: "🏆 MobAI 3rd Place MobAI 2025",
+      github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
+    },
+    {
+      title: "StockKeep Inventory App",
+      description: "Automated stock tracking with orders, deliveries, expiry alerts and role-based dashboards",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/stockkeep.jpg",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Full-Stack & Mobile",
+      subtitle: "ESI Sidi Bel Abbès Academic Project",
+      github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
+    },
+    {
+      title: "Chrily - Multi-Vendor E-Commerce",
+      description: "Multi-vendor marketplace connecting sellers and buyers with store management and order processing",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/test.jpg",
+      gradient: "from-pink-500 to-rose-500",
+      category: "Mobile Development",
+      github: "https://github.com/MeriemMOKHTARI/Multi-Vendor-E-Commerce-App"
+    },
+    {
+      title: "Needy - Geolocation-Based App",
+      description: "Connecting users with nearby assistance services using real-time geolocation and interactive maps",
+      tech: ["Flutter", "Provider State Management", "Firebase"],
+      image: "/assets/images/needy.jpg",
+      gradient: "from-rose-500 to-pink-500",
+      category: "Mobile Development",
+      github: "https://github.com/MeriemMOKHTARI/Needy"
+    }
+  ]
+},
+web: {
+  title: "Web Development Projects",
+  projects: [
+    {
+      title: "AI-Powered Traffic Management (SafeRoad)",
+      description: "Web dashboard for traffic optimization with dynamic speed limits and smart traffic lights management",
+      tech: ["React", "JSX", "Tailwind"],
+      image: "/assets/images/Map.png",
+      gradient: "from-pink-400 to-rose-400",
+      category: "AI/ML & Full-Stack",
+      github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
+    },
+    {
+      title: "AI-powered Postal Service Analytics",
+      description: "Web dashboard for sentiment analysis of social media and QR feedback with data visualization",
+      tech: ["React", "JSX", "Tailwind"],
+      image: "/assets/images/inovpost-web.jpg",
+      gradient: "from-rose-400 to-pink-600",
+      category: "AI/ML & Full-Stack",
+      award: "🏆 Inov 2nd Place 2024",
+      github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
+    },
+    {
+      title: "StockKeep Inventory Web",
+      description: "Web-based inventory management system with automated tracking and analytics dashboard",
+      tech: ["React", "JSX", "Tailwind"],
+      image: "/assets/images/Storekeeper-Receipt 1.png",
+      gradient: "from-pink-600 to-rose-400",
+      category: "Full-Stack & Mobile",
+      subtitle: "ESI Sidi Bel Abbès Academic Project",
+      github: "https://github.com/MeriemMOKHTARI/StockKeep-Inventory-System"
+    }
+  ]
+},
+cybersecurity: {
+  title: "Cybersecurity Projects",
+  projects: [
+    {
+      title: "APT Detection & Cybersecurity Analysis",
+      description: "Research on APT groups with MITRE ATT&CK-based detection rules and ELK stack deployment for threat monitoring",
+      tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules","Blue Team"],
+      image: "/assets/images/velo.png",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Cybersecurity",
+      github: "https://www.linkedin.com/feed/update/urn:li:activity:7258245907396149248/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BVGnjsqaoS5q4fqA7gZccIQ%3D%3D"
+    },
+    {
+      title: "Key2QR - Forensics CTF Challenge",
+      description: "Created a forensics CTF challenge, where participants repair a corrupted GIF to extract a key and the first part of a flag, then use the key to decrypt a locked QR code revealing the second part. Involves fixing the GIF header, extracting frames, and scanning the QR code with tools like hexedit, ffmpeg, eog, gpg, and zbarimg",
+      tech: ["Forensics","hexedit", "ffmpeg"," eog", "gpg", "zbarimg","GIF Analysis","QR Code Decryption","CTF"],
+      image: "/assets/images/qrcode.jpg",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Cybersecurity",
+      award: "🏆 CTF author",
+      github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/Key2QR"
+    },
+    {
+      title: "Reverse Shells & Backdoors Analysis",
+      description: "Research and analysis on reverse shells and backdoors, including a practical demonstration.",
+      tech: ["Backdoors", "Reverse Shells", "NC", "MSFVenom","Blue Team"],
+      image: "/assets/images/reverse.jpg",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Cybersecurity"
+    },
+    {
+      title: "ColorPNG - Forensics CTF Challenge",
+      description: "Created a forensics CTF challenge,where a hidden flag is embedded in the red channel of a PNG image using steganography. The flag is encoded as ASCII values in consecutive pixels, terminated by a red value of 0. Provided a Python script using the PIL library to extract the flag by analyzing pixel data.",
+      tech: ["Forensics","Steganography","Image Analysis","Python","CTF","Pixel Manipulation"],
+      image: "/assets/images/spectrum_art.bmp",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Cybersecurity",
+      award: "🏆 CTF author",
+      github: "https://github.com/MeriemMOKHTARI/Alphabit_minictf_2k25/tree/master/forensics/ColorPNG"
+    }
+  ]
+},
+ai: {
+  title: "AI & Machine Learning Projects",
+  projects: [
+    {
+      title: "AI-Automated IoT Voice Assistant",
+      description: "Offline voice assistant using Vosk and Tiny-BERT with MQTT-based IoT control and SVM speaker recognition",
+      tech: ["AI/ML", "IoT", "Voice Recognition","LLM"],
+      image: "/assets/images/iot.jpg",
+      gradient: "from-rose-400 to-pink-600",
+      category: "AI/ML & IoT",
+      github: "https://github.com/MeriemMOKHTARI/AI-IoT-Voice-Assistant-for-Smart-Living"
+    },
+    {
+      title: "AI-Powered Traffic Management (SafeRoad)",
+      description: "Computer vision-based traffic optimization with dynamic speed control and smart analytics",
+      tech: ["AI/ML", "Computer Vision", "IoT"],
+      image: "/assets/images/Map.png",
+      gradient: "from-pink-400 to-rose-400",
+      category: "AI/ML & Full-Stack",
+      github: "https://github.com/MeriemMOKHTARI/AI-Traffic-Management-Web"
+    },
+    {
+      title: "AI-powered Postal Service Analytics",
+      description: "Sentiment analysis AI system for social media and customer feedback processing",
+      tech: ["AI/ML", "NLP", "Sentiment Analysis"],
+      image: "/assets/images/inovpost-web.jpg",
+      gradient: "from-pink-600 to-rose-400",
+      category: "AI/ML & Full-Stack",
+      award: "🏆 Inov 2nd Place 2024",
+      github: "https://github.com/MeriemMOKHTARI/AI-Postal-Service-Analytics-Web"
+    },
+    {
+      title: "AI-Powered Book App",
+      description: "NLP-driven book recommendations with mood/interest-based search and fake face detection models",
+      tech: ["AI/ML", "NLP", "Computer Vision","chatboat"],
+      image: "/assets/images/bookini.jpg",
+      gradient: "from-rose-600 to-pink-400",
+      category: "Mobile & AI",
+      award: "🏆 MobAI 3rd Place 2025",
+      github: "https://github.com/MeriemMOKHTARI/mob_ai_app"
+    }
+  ]
+}
+
 };
 
   const categoryData = projectData[category];
