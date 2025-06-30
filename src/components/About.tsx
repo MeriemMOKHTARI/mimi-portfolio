@@ -77,7 +77,7 @@ const About = () => {
               <div className="relative">
                 <div className="w-64 h-80 bg-gradient-to-br from-pink-400/20 to-slate-700/50 rounded-xl flex items-center justify-center border border-pink-400/30">
                   <img 
-                    src="/assets/images/me.jpg"
+                    src="/assets/images/meee.png"
                     alt="Meriem Mokhtari" 
                     className="w-full h-full object-cover rounded-xl"
                   />
