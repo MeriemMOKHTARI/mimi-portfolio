@@ -35,10 +35,9 @@ const About = () => {
                 Who I am?
               </h3>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                I'm a final year Computer Systems Engineering student at the Higher School of Computer Science,
-                and a Mobile & Web Developer at DATALOCK company, with a strong passion for cybersecurity
-                experienced in digital forensics, blue teaming, and detection engineering as well as a keen
-                interest in networks, AI, and UI/UX design.
+                State Engineer in Computer Systems Engineering, graduated from the Higher School of Computer Science in Sidi Bel Abbès (ESI-SBA), specialized in web and mobile application development, artificial intelligence, and cybersecurity
+                (digital forensics, blue teaming, and detection engineering) as well as a keen
+                interest in networks, embedded systems, and UI/UX design. I integrate security from the design phase and leverage AI to enhance performance and user experience.
               </p>
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                 I've completed several academic projects, freelance work, and internships. My diverse experience
@@ -52,7 +51,13 @@ const About = () => {
               <div className="space-y-4">
                 <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
                   <span className="text-xl text-pink-300 font-bold">Mobile and Web Developer</span>
-                  <span className="text-lg text-gray-400"> at DATALOCK company (Oct 2024 - Present)</span>
+                  <span className="text-lg text-gray-400"> at DATALOCK company (Oct 2024 - Oct 2025)</span>
+                  <p className="text-gray-300 mt-2">Led an agile development team for VTC and e-commerce projects.</p>
+                </div>
+                <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
+                  <span className="text-xl text-pink-300 font-bold">Flutter & React Developer</span>
+                  <span className="text-lg text-gray-400"> - Freelance Project (January 2024 - June 2024)</span>
+                  <p className="text-gray-300 mt-2">Developed ERP platform for inventory and order management with role-based interfaces (admin, buyer, warehouse manager, director).</p>
                 </div>
                 <div className="border-l-2 border-pink-400 pl-4 sm:pl-6">
                   <span className="text-xl text-pink-300 font-bold">Cybersecurity Detection Engineering Intern</span>

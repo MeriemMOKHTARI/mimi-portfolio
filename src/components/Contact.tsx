@@ -13,8 +13,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hm.mokhtari@esi-sba.dz",
-      link: "mailto:hm.mokhtari@esi-sba.dz"
+      value: "mokhtari.meriem000@gmail.com",
+      link: "mailto:mokhtari.meriem000@gmail.com"
     },
     {
       icon: Phone,

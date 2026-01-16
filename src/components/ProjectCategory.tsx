@@ -129,6 +129,26 @@ cybersecurity: {
   title: "Cybersecurity Projects",
   projects: [
     {
+      title: "SOC Automation & LLM Integration",
+      description: "Designed and implemented an intelligent SOC workflow combining advanced network analysis with fine-tuned LLM models to automate threat detection and accelerate analyst investigations. The system processes security logs in real-time, integrates behavioral indicators for continuous risk evaluation, and provides contextual threat intelligence with response actions based on MITRE ATT&CK frameworks.",
+      tech: ["Transformers", "DistilBERT", "PyTorch", "LangChain", "MITRE ATT&CK", "ELK Stack", "Python", "REST APIs"],
+      image: "https://tse3.mm.bing.net/th/id/OIP.29aKJieC146EGdQOEH8xnwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      gradient: "from-pink-600 to-rose-600",
+      category: "AI/ML & Cybersecurity",
+      award: "⚡ 40% faster response, 35% workload reduction",
+      github: "https://github.com/MeriemMOKHTARI/network-intrusion-detection-distilbert-llm"
+    },
+    {
+      title: "Cybersecurity Compliance & Risk Management GRC",
+      description: "Designed and developed an AI-driven Governance, Risk and Compliance platform that automates security policy enforcement and real-time compliance monitoring. Implemented ML models for predictive risk assessment and automated audit reporting aligned with NIST and ISO 27001 frameworks. Won 1st Place among 20+ teams in SATIM GRC Hackathon for innovative approach to automating security compliance.",
+      tech: ["Python", "Machine Learning", "Scikit-learn", "Django", "React", "PostgreSQL", "Docker", "REST APIs", "NIST", "ISO 27001"],
+      image: "https://media.licdn.com/dms/image/v2/D5612AQEcim9VuRDWuA/article-cover_image-shrink_720_1280/B56ZWksUZSHoAQ-/0/1742224838001?e=2147483647&v=beta&t=xgeQ90c6m3FfOJwhGwEMyRKUAlxs1spTn-LJCxNCrZ4",
+      gradient: "from-rose-600 to-pink-600",
+      category: "AI/ML & Cybersecurity",
+      award: "🏆 SATIM GRC 1st Place 2025",
+      github: "https://www.linkedin.com/posts/gdg-ensia_aifest25-techinnovation-aicommunity-activity-7341162805003231233--gnu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEFwCSsBa5EspyAagP6ujf9yMx5i4FGjSyM"
+    },
+    {
       title: "APT Detection & Cybersecurity Analysis",
       description: "Research on APT groups with MITRE ATT&CK-based detection rules and ELK stack deployment for threat monitoring",
       tech: ["MITRE ATT&CK", "ELK Stack", "YARA Rules","Blue Team"],
@@ -170,6 +190,26 @@ cybersecurity: {
 ai: {
   title: "AI & Machine Learning Projects",
   projects: [
+    {
+      title: "SOC Automation & LLM Integration",
+      description: "Designed and implemented an intelligent SOC workflow combining advanced network analysis with fine-tuned LLM models to automate threat detection and accelerate analyst investigations. The system processes security logs in real-time, integrates behavioral indicators for continuous risk evaluation, and provides contextual threat intelligence with response actions based on MITRE ATT&CK frameworks.",
+      tech: ["Transformers", "DistilBERT", "PyTorch", "LangChain", "MITRE ATT&CK", "ELK Stack", "Python", "REST APIs"],
+      image: "https://tse3.mm.bing.net/th/id/OIP.29aKJieC146EGdQOEH8xnwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      gradient: "from-pink-600 to-rose-600",
+      category: "AI/ML & Cybersecurity",
+      award: "⚡ 40% faster response, 35% workload reduction",
+      github: "https://github.com/MeriemMOKHTARI/network-intrusion-detection-distilbert-llm"
+    },
+    {
+      title: "Cybersecurity Compliance & Risk Management GRC",
+      description: "Designed and developed an AI-driven Governance, Risk and Compliance platform that automates security policy enforcement and real-time compliance monitoring. Implemented ML models for predictive risk assessment and automated audit reporting aligned with NIST and ISO 27001 frameworks. Won 1st Place among 20+ teams in SATIM GRC Hackathon for innovative approach to automating security compliance.",
+      tech: ["Python", "Machine Learning", "Scikit-learn", "Django", "React", "PostgreSQL", "Docker", "REST APIs", "NIST", "ISO 27001"],
+      image: "https://media.licdn.com/dms/image/v2/D5612AQEcim9VuRDWuA/article-cover_image-shrink_720_1280/B56ZWksUZSHoAQ-/0/1742224838001?e=2147483647&v=beta&t=xgeQ90c6m3FfOJwhGwEMyRKUAlxs1spTn-LJCxNCrZ4",
+      gradient: "from-rose-600 to-pink-600",
+      category: "AI/ML & Cybersecurity",
+      award: "🏆 SATIM GRC 1st Place 2025",
+      github: "https://www.linkedin.com/posts/gdg-ensia_aifest25-techinnovation-aicommunity-activity-7341162805003231233--gnu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEFwCSsBa5EspyAagP6ujf9yMx5i4FGjSyM"
+    },
     {
       title: "AI-Automated IoT Voice Assistant",
       description: "Offline voice assistant using Vosk and Tiny-BERT with MQTT-based IoT control and SVM speaker recognition",
