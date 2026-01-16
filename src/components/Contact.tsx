@@ -21,7 +21,7 @@ const Contact = () => {
       label: "Phone",
       value: "+213 562 337 784",
       link: "tel:+213562337784"
-    },
+    },//
     {
       icon: Linkedin,
       label: "LinkedIn",
